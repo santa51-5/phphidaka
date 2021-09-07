@@ -1,0 +1,38 @@
+<html>
+<head>
+<title>set_company</title>
+
+
+<script>
+// cookieの値を読み書きする要素
+//var input1 = document.getElementById("input1");
+
+setCookie("campany", "inasei20");
+setCookie("campany_root", "inasei20");
+setCookie("ID_Customer", "inasei20");
+setCookie("DSN_Company", "mysql:dbname=db_inasei;host=localhost;charset=utf8");
+
+//var cookieValue = document.cookie.replace(/(?:(?:^|.*;\s*)campany\s*\=\s*([^;]*).*$)|^.*$/, "$1");
+//let cookies_get = document.cookie;
+//document.write (cookies_get);
+//console.log(document.cookie);
+
+location.href='../do/login.php';
+
+
+function setCookie(key, val, tmp) {
+    tmp = key + "=" + escape(val) + "; ";
+    //tmp += "path=" + location.pathname + "; ";
+    tmp += 'expires=Tue, 31-Dec-2030 23:59:59, "/"' ;
+    document.cookie = tmp;
+}
+function clearCookie(key) {
+    document.cookie = key + "=" + "xx; expires=Tue, 1-Jan-1980 00:00:00;";
+}
+
+</script>
+</head>
+<body>
+    
+</body>
+</html>

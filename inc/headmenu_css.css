@@ -1,0 +1,280 @@
+<!--
+/*https://saruwakakun.com/html-css/reference/buttons*/
+.square_btn{
+    display: inline-block;
+    padding: 0.5em 1em;
+    text-decoration: none;
+    background: #f7f7f7;
+    border-left: solid 6px #666;/*左線*/
+    color: #000;/*文字色*/
+    font-weight: bold;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.29);
+}
+.square_btn:active {
+    box-shadow: inset 0 0 2px rgba(128, 128, 128, 0.1);
+    transform: translateY(2px);
+}
+.hm {
+position:relative;
+ margin-left :auto ;
+}
+
+/* https://uxmilk.jp/60712  */
+#nav_headmenu {
+  list-style: none;
+  overflow: hidden;
+}
+
+#nav_headmenu li {
+  width: 140px;
+  text-align: center;
+  background-color: #333;
+  float: left;
+  height: 50px;
+  line-height: 50px;
+  margin-right: 2px;
+}
+
+#nav_headmenu li a {
+  text-decoration: none;
+  color: #fff;
+  font-weight: bold;
+  padding: 20px;}
+
+
+/* http://wwx.jp/css-navigation-menu */
+.globalNav {
+    list-style: none;
+    overflow: hidden;
+}
+
+.globalNav li {
+    float: left;
+    border-right: 1px solid #DDD;
+}
+
+.globalNav li a {
+    display: block;
+    padding: 7px 15px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}
+
+.globalNav li a span {
+    display: block;
+    margin: 3px 0 0 0;
+    color: #AAA;
+    text-transform: uppercase;
+    font-size: 80%;
+    letter-spacing: 1px;
+}
+
+.globalNav li a:hover {
+    background: #EEE;
+}
+
+.globalNav li.active a {
+    background: #333;
+    color: #EEE;
+}
+
+/*headmenuのid要素*/
+/*div#headmenu {
+    BACKGROUND-COLOR: #e5f5f9;
+ ;
+}
+*/
+
+
+/* 三角形　
+https://www.granfairs.com/blog/staff/use-triangle-with-css */
+.triange1{
+  position:relative;
+  background: #6aa7cd;
+  padding: 1em;
+}
+.triange1:after{
+  content: "";
+  position:absolute;
+  top:0;
+  right:0;
+  width:0;
+  height:0;
+  border-style: solid;
+  border-color: transparent #fff transparent transparent;
+  border-width: 19px 25px 19px 0px;
+}
+
+/* http://un-tech.jp/css-border-triangle/ */
+.triangle {
+  width: 0;
+  height: 0;
+  border-top: 19px solid #e5f5f9;
+  border-right: 19px solid #29c195;
+  border-bottom: 19px solid #e5f5f9;
+  border-left: 19px solid #ee4f16;
+}
+
+/*  */
+#headmenu.headmenu_item img{
+border :none;
+}
+
+span.l_icon_period {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: #BDB76B;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_use {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: sandybrown;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+span.l_icon_kigengire { /*期限切れ*/
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: yellow;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: black;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+span.l_icon_tougetsu {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: red;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+span.l_icon_jigetsu {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_hj {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_youchui {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_ng {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_haiki {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_mishochi {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_chouzumi {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+span.l_icon_koukanzumi {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+span.l_icon_shurizumi {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_sumi {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+span.l_icon_youchui {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: green;  /* グラデーションが表示できない際の背景色 */
+   /*background-image: linear-gradient( 0deg, #008, #08f );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding: 0.2em 0.3em;      /* 内側の余白量 */
+   font-size:1.2em;
+   margin : 1px;
+}
+
+-->

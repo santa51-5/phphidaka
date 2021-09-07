@@ -1,0 +1,193 @@
+/*一般*/
+/*
+html, body, div, span, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+abbr, address, cite, code,
+del, dfn, em, img, ins, kbd, q, samp,
+small, strong, sub, sup, var,
+b, i,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, dialog, figure, footer, header,
+hgroup, menu, nav, section,
+time, mark, audio, video {
+	margin:0;
+	padding:0;
+	border:0;
+	outline:0;
+	font-size:100%;
+	vertical-align:baseline;
+	background:transparent;
+}
+
+
+*/
+*{
+	margin: 0;
+	padding: 0;
+	font-family: "MS PGothic","Osaka",Arial,sans-serif;
+	/*-webkit-appearance : none;*/
+}
+
+body {
+	line-height: 1;
+	font-size: 12px;
+}
+
+
+HEADER{
+	BACKGROUND-COLOR:ALICEBLUE;
+	PADDING:0.5EM;
+	height : 2.5em;
+}
+
+HEADER h1{
+background-color :transparent;
+  float: left;
+/*display : inline;*/}
+
+.loginfo{
+ /*display: block;
+ /*margin-left: 4em;*/
+ /*vertical-align: middle;*/
+ /*text-align: right;*/
+float:right;
+
+}
+
+.infoDate{
+ font-weight: bold;
+}
+
+h2{
+	background-color :transparent;
+/*	  float: left;*/
+		margin : 10px auto auto 50px;
+    padding : 10px 10px 10px 10px;
+}
+
+/**********************
+コピー防止
+***********************/
+.nocopy {
+user-select:none;
+-moz-user-select:none;
+-webkit-user-select:none;
+-khtml-user-select:none;
+}
+
+
+.wrapper{
+/*	min-height: 100vh;*/
+	position: relative;/*←相対位置*/
+	padding-bottom: 30px;/*←footerの高さ*/
+	box-sizing: border-box;/*←全て含めてmin-height:100vhに*/
+
+	margin: 0;
+	display: flex;
+  flex-direction: column;
+	min-height: 100vh;
+
+}
+
+/*　フッター　*/
+.footer {
+	background: #007192;
+	color: #fff;
+	height: 10px;
+	margin: auto;
+/*	padding : auto;*/
+
+	width: 100%;
+/*	background-color: #89c7de;
+	color: #fff;*/
+	text-align: center;
+	padding: 10px 0;
+
+position: absolute;/*←絶対位置*/
+	bottom: 0; /*下に固定*/
+}
+
+
+/*時計*/
+div#sclock{
+	font-weight:bold;
+	position : relative;
+	width : 150px;
+	height : 25px;
+	top : 0px;
+	left : 50px;
+	background-color : #60F080;
+	border-radius : 10px;
+	padding-top:3px ;
+        display : inline-block;
+	text-align : center;
+}
+p#clock {
+ font-size:1em;
+}
+
+@media print {
+.noprint { display: none; }
+}
+
+a{
+text-decoration: none;
+color : black;
+}
+.contents {
+background-color: #f9f9f9;
+margin: 0;
+height: 89vh;
+}
+.contents h1{
+background-color: #f9f9f9;
+margin-left: 4em;
+margin-top: 2em;
+margin-bottom: 0.5em;
+}
+.ms_timemout p{
+ font-size: 1em;
+ margin-top: 0em;
+ margin-left: 1em;
+ padding-top: 1em;
+margin-bottom: 0.5em;
+}
+.ms_timemout {
+ font-size: 2em;
+ border: thin solid #000;
+ padding : 2em auto 1em 2em;
+ margin-left: 2em;
+ margin-right: 2em;
+ border-radius: 5px;
+ /*text-align: center;*/
+ background-color: #fff;
+
+}
+.TOlogin  a{
+	font-size: 1.5em;
+ margin-top: 2em ;
+ margin-left: 4em;
+ padding:0.5em;
+display: inline-block;
+background-color:#fff;
+border-radius: 5px;
+border-color: gray;
+border-style:  solid;
+border-width: thin;;
+color:#000;
+box-shadow: 2px 2px 4px gray;
+background-image: linear-gradient(to bottom, #ccc, #fcfcfc 80%);
+}
+.TOlogin a:hover {
+cursor : pointer;
+opacity: 0.5;
+
+}
+.TITLElogin{
+	background-color: whitesmoke;
+	padding: 1em;
+	
+   }
+   

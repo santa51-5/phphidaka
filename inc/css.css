@@ -1,0 +1,39 @@
+/*
+a:link { color: red; }
+a:visited { color: purple; }
+a { text-decoration: none}
+a:hover { background-color: #FFCC44; text-decoration: underline overline; }
+
+td,th { nowrap }
+*/
+
+/*
+thead { background-color: #B0C4DE    ; color: black; }
+*/
+
+tfoot { background-color: #FFDDAA; }
+tbody.tbody1 { background-color: #EEEEEE;font-size: 80%; line-height: 150%;}
+tbody.tbody2 { background-color: #FCFCFC;font-size: 80%; line-height: 150%;}
+tbody.tbody3 { background-color: #35f54e; }
+tbody.tbody4 { background-color: #FFFF00; }
+tbody.tbody5 { background-color: #808080; }
+tbody.tbody6 { background-color: #99FF00; }
+tbody.tbody7 { background-color: #20B2AA; }
+tbody.tbody8 { background-color: #ffdead; }
+.parama1 {background-color:red;color:black;font-size=large;}
+.parama2 {background-color:black;color:white;font-size=small;}
+BODY, TH, TD { font-size=100%; }
+
+/*.ta3 {font-size:50%;}
+.limit_size {font-size:20%;}
+*/
+
+#hyo_size.ta3 table,
+#hyo_size.ta3 td{
+
+border : none ;
+border-collapse : collapse ;
+margin : 0;
+padding: 0;
+
+}

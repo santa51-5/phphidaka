@@ -1,0 +1,998 @@
+
+
+
+
+
+
+/*入荷情報の変更テーブル*/
+.ta1 {
+width: 800px;/*テーブルの幅*/
+margin-top:30px;/*テーブルの上にスペース*/
+margin-left:50px;/*左にスペース*/
+margin-bottom:10px;/*テーブルの下にスペース*/
+}
+
+.ta1 th{
+border-right: 1px solid #999999;/*線の色*/
+border-bottom: 1px solid #999999;/*線の色*/
+text-align : center;
+
+}
+
+.ta1 td{
+border-right: 1px solid #999999;/*線の色*/
+border-bottom: 1px solid #999999;/*線の色*/
+text-align : left;
+font-size:1em;
+
+}
+ta1 {
+border-top: 1px solid #999999;/*線の色*/
+border-left: 1px solid #999999;/*線の色*/
+}
+
+.ta1 .status {
+text-align:center;/*文字をセンター合わせに*/
+}
+
+.ta1 .num {
+text-align:right;/*文字を右側に寄せる*/
+}
+
+.ta1 td, .ta1 th {
+padding:7px 12px;
+}
+
+.ta1 tr {
+background-color:#F0FFFF;
+color:#666666;
+}
+
+.ta1 th {
+background-color:#000099;
+color:#FFFFFF;
+}
+
+.ta1 td input{
+font-size:1.2em;
+width: 350px;
+height:40px
+}
+.ta1 td select, textarea{
+font-size:1.2em;
+width: 350px;
+
+}
+
+/* ▼140917▼ サブミットボタン */
+.sub_btn{
+height:40px;
+width: 200px;
+}
+
+
+/* ▼140818テーブル▼ 選択された行の色を変える */
+
+.ta_h tr:hover {
+background-color:#bdb76b;
+color:#FFFFFF;
+}
+.ta_h th {
+color:#333333;
+background-color:#5caadb;
+border-bottom:solid 1px #cccccc;
+}
+/* ▲140818テーブル▲ */
+
+/* ▼140818テーブル▼ descript*/
+/* 191115 参考
+    https://proengineer.internous.co.jp/content/columnfeature/7500#2
+*/
+
+
+.ta2 {
+width: 800px;/*テーブルの幅*/
+margin-top:20px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+border-top: 1px solid #666666; /* テーブル罫線上部のスタイルを指定する */
+border-left: 1px solid #666666; /* テーブル罫線左側のスタイルを指定する */
+}
+.ta2 .status {
+text-align:center;
+}
+
+.ta2 .num {
+text-align:right;
+}
+
+table.ta2 td, .ta2 th {
+padding:3px 12px;
+ }
+
+.ta2 th {
+padding:4px 10px; /* 見出しの余白を指定する(上下左右) */
+background-color: rgba(170,170,170, 0.3);/* 見出しの背景色を指定する */
+font-weight: bold; /* フォントの太さを指定する */
+color: #326693; /* フォントの色を指定する */
+text-align: left; /* 見出しテキストの位置(横方向)を指定する */
+vertical-align: top; /* 見出しテキストの位置(縦方向)を指定する */
+border-top: 1px solid #fff; /* 罫線上部のスタイルを指定する */
+border-bottom: 1px solid #666666;/* 罫線下部のスタイルを指定する */
+border-left: 3px double #666666;/* 罫線左側のスタイルを指定する */
+border-right: 1px solid #666666;/* 罫線右側のスタイルを指定する */
+text-align-last: justify;
+vertical-align: middle;
+    /*    border-bottom: #51A8FF 4px solid;
+    padding: 10px;
+    /*
+    background-color:#3366CC;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+*/
+    text-align:center;
+/*color:yellow;*/
+font-size:90%;
+}
+
+.ta2 td {
+/*padding:4px 7px; /* 要素の余白を指定する(上下左右) */
+background-color: #ffffff; /* ボックスの背景色を指定する */
+border-right: 1px solid #666666;/* 罫線右側のスタイルを指定する */
+border-bottom: 1px solid #666666;/* 罫線下部のスタイルを指定する */
+font-size:90%;
+    /*    border-bottom: 1px solid #ccc;
+    padding-bottom: 10px;
+    /*
+background-color:#EEEEEE;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+*/
+}
+
+/* ▲140818テーブル▲ */
+
+/* ▲sizeテーブル▲ */
+TABLE#hyo_size.ta3 td,TABLE#hyo_size.ta3 tr {
+background-color:rgba(0,0,255,0);
+border:rgba(0,0,255,0);;
+border-style: rgba(0,0,255,0);;
+border-bottom:rgba(0,0,255,0);;
+margin: 0;
+padding:0;
+width : auto;
+/*border:solid 0px;*/
+/*border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;*/
+}
+TABLE#hyo_size.ta3 .limit_size {
+font-size : 80%;
+
+}
+
+/* ▲検査データテーブル▲ */
+.ta4 {
+width: 1100px;/*テーブルの幅*/
+margin-top:20px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+}
+
+.ta4 th {
+background-color:#B0C4DE;
+border:solid 1px;*/
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+font-size: 90%;}
+
+
+.ta4 td {
+background-color:#EEEEEE;*/
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+font-size: 100%;
+}
+
+/* ▲所番地変更テーブル▲ */
+.ta5 {
+width: 800px;/*テーブルの幅*/
+margin-top:30px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+
+}
+.ta5 th {
+background-color:#A9F5D0;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+padding:7px 12px;
+}
+
+.ta5 td {
+background-color:#EEEEEE;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:left;
+padding:7px 12px;
+}
+
+.ta5 td input{
+font-size:1.2em;
+width: 350px;
+height:40px
+}
+.ta5 td select{
+font-size:1.2em;
+width : 300px;
+}
+.ta5 td textarea{
+font-size:1.2em;
+width: 350px;
+
+}
+
+/* ▲廃棄手続きテーブル▲ */
+.ta6 {
+width: 800px;/*テーブルの幅*/
+margin-top:30px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+
+}
+.ta6 th {
+background-color:#A9F5D0;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+padding:7px 12px;
+}
+
+.ta6 td {
+background-color:#EEEEEE;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:left;
+padding:7px 12px;
+}
+
+.ta6 td input{
+font-size:1.2em;
+width: 350px;
+height:40px
+}
+.ta6 td select{
+font-size:1.2em;
+width : 300px;
+}
+.ta6 td textarea{
+font-size:1.2em;
+width: 350px;
+
+}
+
+
+/* ▲新規入力テーブル▲ */
+.ta_new {
+width:700px;/*テーブルの幅*/
+margin-top:50px;/*テーブルの上にスペース*/
+margin-left:0px;
+margin-bottom:10px;
+font-size: 100%;
+
+}
+
+.ta_new td, .ta_new th{
+border-right: 1px solid #999999;/*線の色*/
+border-bottom: 1px solid #999999;/*線の色*/
+text-align:center;
+font-size=150%;
+}
+
+
+.ta_new th {
+background-color:#A9F5D0;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+padding:7px 12px;
+}
+
+.ta_new td {
+background-color:#EEEEEE;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:left;
+padding:7px 12px;
+height : 50px;
+}
+
+.ta_new .field1 {
+width : 20px;
+}
+
+.ta_new .field2 {
+width : 40px;
+}
+
+.ta_new .field3 {
+
+}
+.ta_new .field4 {
+width : 500px;
+}
+.ta_new ._submit input{
+text-align : center;
+height : 70px;
+width : 200px;
+background-color:#BDBDBD;
+font-size :1.2em;
+}
+.ta_new td._submit{
+text-align : center;
+height : 100px;
+background-color:#E0E6F8;
+
+}
+
+.ta_new td.field4 input{
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	vertical-align:middle;
+}
+.ta_new td.field4 select{
+	width: 300px;
+	height: 50px;
+	font-size: 20px;
+	vertical-align:middle;
+}
+.ta_new td.field4 textarea{
+	width: 500px;
+	height: 50px;
+	font-size: 20px;
+	vertical-align:middle;
+}
+
+.ta_new td.field2 input{
+	width: 80px;
+	height: 50px;
+	font-size: 20px;
+	vertical-align:middle;
+}
+.ta_new td.field1 input{
+	width: 60px;
+	height: 50px;
+	font-size: 20px;
+	vertical-align:middle;
+}
+
+
+.ta_info {
+width: 600px;/*テーブルの幅*/
+margin-top:50px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+}
+.ta_info td, .ta_info th{
+font-size: 120%;
+border-spacing: 5;
+padding: 5;
+}
+
+
+/* ▼140922テーブル▼ listing*/
+
+.ta_list {
+width: 1000px;/*テーブルの幅*/
+margin-top:20px;/*テーブルの上にスペース*/
+margin-left:50px;
+margin-bottom:10px;
+
+/*  width: auto;*/
+  border-spacing: 0;
+  font-size:1em;
+}
+
+.ta_list th {
+  color: #fff;
+  padding: 5px 5px;
+  background: #58A7D2;
+  border: 1px #c0c0c0 solid;
+  line-height: 100%;
+  text-align: center;
+  font-size:90%;
+}
+
+.ta_list th:first-child {
+  border-radius: 5px 0 0 0;
+}
+.ta_list th:last-child {
+  border-radius:0 5px 0 0;
+  border-right:1px solid #258;
+  box-shadow: 2px 2px 1px rgba(0,0,0,0.1),0px 1px 1px rgba(255,255,255,0.3) inset;
+}
+.ta_list tr td {
+  /*border: 1px #c0c0c0 solid;*/
+  /*padding: 8px 15px;*/
+  /*border-bottom: 1px solid #84b2e0;*/
+  /*border-left: 1px solid #84b2e0;*/
+  /*text-align: center;*/
+ border-
+}
+
+
+.ta_list tr td:last-child {
+  /*border-right: 1px solid #84b2e0;*/
+  /*box-shadow: 2px 2px 1px rgba(0,0,0,0.1); */
+}
+.ta_list tr {
+  /*background: #fff;*/
+}
+.ta_list tr:nth-child(2n+1) {
+ /* background: #f1f6fc;*/
+}
+.ta_list tr:last-child td {
+  /*box-shadow: 2px 2px 1px rgba(0,0,0,0.1);*/
+}
+.ta_list tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+.ta_list tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+.ta_list tr:hover {
+  /*background: #bbd4ee;
+  cursor:pointer;*/
+}
+.ta_list .last {
+  border-bottom : #000;
+}
+
+span.jidou{
+color: #ffffcc;
+font-size:90%;
+font-weight: bold;
+text-shadow: 0px 0px 0px #fff,
+  2px  2px 0px #ff6633,
+  -2px  -2px 0px #ff6633,
+ 2px -2px 0px #ff6633,
+ -2px 2px 0px #ff6633;
+}
+span.circle{
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%;
+  background: #ff6633;
+  text-align:center;
+  line-height: 15px;
+font-size:100%;
+color : white;}
+
+option.sentaku{
+color: #ff0000;
+}
+input:focus, select:focus, textarea:focus {
+background-color: #bde9ba;
+}
+p.henkou{
+font-size:0.5em
+}
+
+#each p{
+  display: inline;
+}
+p.henkou_chu_b{
+    text-shadow:
+        0 2px 0 #00f,
+        2px 0 0 #00f,
+        0 -2px 0 #00f,
+        -2px 0 0 #00f,
+        -2px -2px 0 #00f,
+        2px -2px 0 #00f,
+        -2px 2px 0 #00f,
+        2px 2px 0 #00f
+        ;
+  color:#fff;
+ font-size:0.8em;
+ font-weight: bold;
+ margin-left: 1em; 
+}
+p.henkou_chu_br{
+    text-shadow:
+        0 2px 0 #800000,
+        2px 0 0 #800000,
+        0 -2px 0 #800000,
+        -2px 0 0 #800000,
+        -2px -2px 0 #800000,
+        2px -2px 0 #800000,
+        -2px 2px 0 #800000,
+        2px 2px 0 #800000
+        ;
+  color:#fff;
+ font-size:0.8em;
+ font-weight: bold;
+ margin-left: 1em;
+}
+p.henkou_chu_r{
+    text-shadow:
+        0 2px 0 red,
+        2px 0 0 red,
+        0 -2px 0 red,
+        -2px 0 0 red,
+        -2px -2px 0 red,
+        2px -2px 0 red,
+        -2px 2px 0 red,
+        2px 2px 0 red
+        ;
+  color:#fff;
+ font-size:0.8em;
+ font-weight: bold;
+ margin-left: 1em;
+}
+p.henkou_chu_g{
+    text-shadow:
+        0 2px 0 #6B8E23,
+        2px 0 0 #6B8E23,
+        0 -2px 0 #6B8E23,
+        -2px 0 0 #6B8E23,
+        -2px -2px 0 #6B8E23,
+        2px -2px 0 #6B8E23,
+        -2px 2px 0 #6B8E23,
+        2px 2px 0 #6B8E23
+        ;
+  color:#fff;
+ font-size:0.8em;
+ font-weight: bold;
+ margin-left: 1em;
+}
+
+
+
+/* ▲新規入力チェックテーブル▲ */
+.ta_new_ck {
+width:600px;/*テーブルの幅*/
+margin-top:10px;/*テーブルの上にスペース*/
+margin-left:0px;
+margin-bottom:10px;
+font-size: 100%;
+
+}
+
+.ta_new_ck td, .ta_new_ck th{
+border-right: 1px solid #999999;/*線の色*/
+border-bottom: 1px solid #999999;/*線の色*/
+text-align:center;
+font-size=150%;
+}
+.ta_new_ck td.th_td{
+background-color:#A9F5D0;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+padding:7px 12px;
+}
+
+.ta_new_ck th {
+background-color:#A9F5D0;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:center;
+padding:7px 12px;
+width:150px;
+}
+
+.ta_new_ck td {
+background-color:#EEEEEE;
+border:solid 1px;
+border-color:#eef4f7 #a8c7d5 #a8c7d5 #eef4f7;
+text-align:left;
+padding:7px 12px;
+height : 50px;
+}
+
+.ta_new_ck ._submit input{
+text-align : center;
+height : 70px;
+width : 200px;
+background-color:#BDBDBD;
+font-size :1.2em;
+}
+.ta_new_ck td._submit{
+text-align : center;
+height : 100px;
+background-color:#E0E6F8;
+
+}
+
+/* ▲ｐｄｆ表示テーブル▲ 150417　*/
+.ta_h th{
+border-radius: 10px 10px 0px 0px / 10px 10px 0px 0px;
+}
+
+
+
+/* ▲search input▲ 150417　*/
+.kensaku input{
+/*text-align : center;*/
+height : 15x;
+width : 30px;
+background-color:#fff;
+font-size :1em;
+}
+.kensaku td._submit{
+text-align : center;
+height : 100px;
+background-color:#E0E6F8;
+}
+.kensaku th{
+text-align : right;
+height : 20px ; width : 100px;
+}
+
+/*▲listing_p.asp▲　181018　*/
+/*ヘッドメニュー*/
+table#headmenu  {
+border:none;
+}
+
+/*descript.asp 191113*/
+#each h1 {
+    border-bottom : solid 3px black;
+    border-left : solid 5px black;
+    margin : 30px auto auto 10px;
+    padding : 10px 10px 30px 10px;
+
+}
+#each h2 {
+    border-bottom : solid 1px black;
+    border-left : solid 2px black;
+    margin : 10px auto auto 50px;
+    padding : 10px 10px 10px 10px;
+
+}
+/*
+http://johnsardine.com/freebies/dl-html-css/simple-little-tab/
+*/
+.ta4_ {
+    width: 700px;/*テーブルの幅*/
+    margin-top:20px;/*テーブルの上にスペース*/
+    margin-left:50px;
+}
+
+.ta5_ {
+    width: 400px;/*テーブルの幅*/
+    margin-top:20px;/*テーブルの上にスペース*/
+    margin-left:50px;
+}
+
+.ta4_ a:link {
+	color: #666;
+	font-weight: bold;
+	text-decoration:none;
+}
+.ta4_ a:visited {
+	color: #999999;
+	font-weight:bold;
+	text-decoration:none;
+}
+.ta4_ a:active,
+.ta4_ a:hover {
+	color: #bd5a35;
+	text-decoration:underline;
+}
+.ta4_ .ta5_ table{
+
+    font-family:Arial, Helvetica, sans-serif;
+	color:#666;
+	font-size:8px;
+	text-shadow: 1px 1px 0px #fff;
+	background:#eaebec;
+	margin:20px;
+	border:#ccc 1px solid;
+
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	border-radius:3px;
+
+	-moz-box-shadow: 0 1px 2px #d1d1d1;
+	-webkit-box-shadow: 0 1px 2px #d1d1d1;
+	box-shadow: 0 1px 2px #d1d1d1;
+}
+
+
+
+.ta4_ th ,.ta5_ th {
+	padding:1px;
+	border-top:1px solid #fafafa;
+	border-bottom:1px solid #e0e0e0;
+
+	background: #ededed;
+	background: -webkit-gradient(linear, left top, left bottom, from(#ededed), to(#ebebeb));
+	background: -moz-linear-gradient(top,  #ededed,  #ebebeb);
+	font-size:10px;
+}
+.ta4_ th:first-child,.ta5_ th:first-child {
+	text-align: center;
+/*	padding-left:20px;*/
+}
+.ta4_  tr:first-child th:first-child,.ta5_ tr:first-child th:first-child {
+	-moz-border-radius-topleft:3px;
+	-webkit-border-top-left-radius:3px;
+	border-top-left-radius:3px;
+}
+.ta4_ tr:first-child th:last-child ,.ta5_ tr:first-child th:last-child {
+	-moz-border-radius-topright:3px;
+	-webkit-border-top-right-radius:3px;
+	border-top-right-radius:3px;
+}
+.ta4_ tr ,.ta5_ tr {
+	text-align: center;
+	padding-left:20px;
+}
+.ta4_ td:first-child ,.ta5_ td:first-child {
+	text-align: left;
+	padding-left:20px;
+	border-left: 0;
+}
+.ta4_ td  ,.ta5_ td {
+	padding:3px;
+	border-top: 1px solid #ffffff;
+	border-bottom:1px solid #e0e0e0;
+	border-left: 1px solid #e0e0e0;
+	font-size:10px;
+	background: #fafafa;
+	background: -webkit-gradient(linear, left top, left bottom, from(#fbfbfb), to(#fafafa));
+	background: -moz-linear-gradient(top,  #fbfbfb,  #fafafa);
+}
+.ta4_ tr.even td ,.ta5_ tr.even td {
+	background: #f6f6f6;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f8f8f8), to(#f6f6f6));
+	background: -moz-linear-gradient(top,  #f8f8f8,  #f6f6f6);
+}
+.ta4_ tr:last-child td ,.ta5_ tr:last-child td {
+	border-bottom:0;
+}
+.ta4_ tr:last-child td:first-child ,.ta5_ tr:last-child td:first-child {
+	-moz-border-radius-bottomleft:3px;
+	-webkit-border-bottom-left-radius:3px;
+	border-bottom-left-radius:3px;
+}
+.ta4_ tr:last-child td:last-child ,.ta5_ tr:last-child td:last-child {
+	-moz-border-radius-bottomright:3px;
+	-webkit-border-bottom-right-radius:3px;
+	border-bottom-right-radius:3px;
+}
+.ta4_ tr:hover td ,.ta5_ tr:hover td {
+	background: #f2f2f2;
+	background: -webkit-gradient(linear, left top, left bottom, from(#f2f2f2), to(#f0f0f0));
+	background: -moz-linear-gradient(top,  #f2f2f2,  #f0f0f0);
+}
+
+/*descript*/
+.detail_process {
+  left : 50px;
+  position: relative;
+  margin-bottom: 10px;
+}
+a.process_data {
+   display: inline-block;   /* インラインブロック化 */
+   border-radius: 4px;     /* 角丸 */
+   background-color: blue;  /* グラデーションが表示できない際の背景色 */
+   background-image: linear-gradient( 113deg, #2C1500, #6D5400 );   /* 青色のグラデーション背景 */
+   color: white;            /* 文字色 */
+   padding:1em;      /* 内側の余白量 */
+   font-size:1em;
+   margin : 1px;
+}
+.ta4_1{
+  width: 800px;
+  border-collapse:separate;
+  border-spacing: 0;
+  margin-top:20px;/*テーブルの上にスペース*/
+  margin-left:50px;
+/*  border-radius:5px;
+  border-top:1px solid #ccc;
+  border-left:1px solid #ccc;
+*/
+}
+/*
+.ta4_1 th, .ta4_1 td
+{
+    border-bottom:1px solid #ccc;
+    border-right:1px solid #ccc;
+}
+ta4_1 tr:first-child th:first-child,ta4_1 tr:first-child td:first-child
+{
+    border-radius: 10px 0 0 0;
+}
+ta4_1 tr:first-child th:last-child,ta4_1 tr:first-child td:last-child
+{
+    border-radius: 0 10px 0 0;
+}
+ta4_1 tr:last-child th:first-child,ta4_1 tr:last-child td:first-child
+{
+    border-radius: 0 0 0 10px;
+}
+ta4_1 tr:last-child th:last-child,ta4_1 tr:last-child td:last-child
+{
+    border-radius: 0 0 10px 0;
+}
+*/
+
+
+
+
+
+
+/*  background: linear-gradient(#bfc1c2,#797979);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 10%;
+  padding: 1px ;
+}
+
+*/
+
+
+
+
+
+.ta4_1  th:first-child{
+  border-radius: 5px 0 0 0;
+}
+
+.ta4_1  th:last-child{
+  border-radius: 0 5px 0 0;
+  border-right: 1px solid #3c6690;
+}
+
+.ta4_1  th{
+  text-align: center;
+  color:white;
+  background: linear-gradient(#bfc1c2,#797979);
+  border-left: 1px solid #3c6690;
+  border-top: 1px solid #3c6690;
+  border-bottom: 1px solid #3c6690;
+  box-shadow: 0px 1px 1px rgba(255,255,255,0.3) inset;
+  width: 10%;
+  padding: 1px ;
+}
+
+.ta4_1  td{
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+  width: 10%;
+  padding: 1px ;
+}
+
+.ta4_1  td:last-child{
+  border-right: 1px solid #a8b7c5;
+}
+
+.ta4_1  tr:last-child td:first-child {
+  border-radius: 0 0 0 5px;
+}
+
+.ta4_1  tr:last-child td:last-child {
+  border-radius: 0 0 5px 0;
+}
+
+.ta4_2 {
+  width: 800px;
+  border-collapse:collapse;
+  border-spacing: 0;
+  margin-top:20px;/*テーブルの上にスペース*/
+  margin-left:50px;
+
+}
+.ta4_2 th{
+  text-align: center;
+  color:black;
+  border : 1px solid #a8b7c5;
+  font-size: 12px;
+  padding: 5px 2px;
+  line-height:1.1em;
+}
+
+.ta4_2 td {
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-right: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+/*  box-shadow: 0px -3px 5px 1px #eee inset;*/
+
+  padding: 5px 1px ;
+  font-size: 12px;
+}
+
+
+.ta4_2 th.th1 {
+  width: 10px;
+}
+.ta4_2 th.th2 {
+  width: 20px;
+  border-bottom: none;
+}
+.ta4_2 th.th3 {
+  width: 30px;
+}
+.ta4_2 th.th4 {
+  width: 40px;
+}
+.ta4_2 th.th7_1 {
+  width: 90px;
+  border-bottom: hidden !important;}
+.ta4_2 th.th7_2 {
+  width: 90px;
+  border-top: : hidden;
+}
+
+
+.ta4_2 th.th5 {
+  width: 50px;
+}
+.ta4_2 th.th6 {
+  width: 60px;
+}
+.ta4_2 th.th7 {
+  width: 70px;
+}
+.ta4_2 th.th8 {
+  width: 80px;
+}
+.ta4_2 th.th9 {
+  width: 90px;
+}
+.ta4_2 th.th10 {
+  width: 100px;
+}
+.ta4_2 th.th11 {
+  width: 110px;
+}
+.ta4_2 th.th12 {
+  width: 120px;
+}
+.hanei {
+display: inline-block;
+padding: 0.3em 0.5em 0.2em;
+color: #ffffff;
+border-radius: 5px;
+background-color: #0099ff;
+border: none;
+}
+
+.ta5_2 {
+  width: 600px;
+  border-collapse:collapse;
+  border-spacing: 0;
+  margin-top:20px;/*テーブルの上にスペース*/
+  margin-left:50px;
+
+}
+.ta5_2 th{
+  text-align: center;
+  color:black;
+  border : 1px solid #a8b7c5;
+  font-size: 12px;
+  padding: 2px ;
+  line-height:1.1em;
+}
+.ta5_2 td {
+  text-align: center;
+  border-left: 1px solid #a8b7c5;
+  border-right: 1px solid #a8b7c5;
+  border-bottom: 1px solid #a8b7c5;
+  border-top:none;
+  box-shadow: 0px -3px 5px 1px #eee inset;
+
+  padding: 5px 1px ;
+  font-size: 12px;
+}

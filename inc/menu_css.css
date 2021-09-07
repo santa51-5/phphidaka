@@ -1,0 +1,196 @@
+/*menu.aspに関する内容*/
+
+/* a:link { color: blue; }
+a:visited { color: purple; }
+*/
+a { text-decoration: none}
+
+/*
+a:hover { background-color: #FFCC44; text-decoration: underline overline; }
+
+*/
+
+#photo { filter: alpha(Opacity=60); -moz-opacity: 0.6; }
+
+div { margin:auto;}
+div.head_menu{ margin:auto;text-align:center;}
+
+div.title {
+	background-color:none;
+	margin : 5% auto ;
+/*	width: 800px ; height: 250px ;*/
+	text-align:center;
+	font : bold 1.2em "Trebuchet MS";
+	border-radius:1em;
+}
+div.title h1{
+	font-size:1.1em;
+		text-align:left;
+		margin: 0.8em 0;
+		padding: 0;
+}
+div.title h2{
+	font-size:0.9em;
+		text-align:left;
+		margin: 0.5em 0;
+		padding: 0;
+}h1.menutitle {
+	font-size:1.2em;
+}
+
+.menu_container{
+	display:flex;
+}
+
+.menuboxes{
+	background-color:none;
+	margin : 3%  1%;
+	/*width: 800px ; height: 250px ;*/
+	text-align:center;
+	font : bold 1.3em "Trebuchet MS";
+	border-radius:1em;
+  flex-basis: 70% ;
+}
+.menu_info{
+  flex-basis: 30% ;
+		margin : 3%  1%;
+}
+
+div.info{background-color:#FFFFAA;
+	margin : auto ; width: 500px ; height: 100px ;text-align:center;
+	font : bold 1.5em "Trebuchet MS"; }
+
+div.table{ margin:auto;text-align:center;}
+
+div.date{background-color:#FFFFbb;
+	margin : right ; position : absolute; width: 100px ; height: 80px ;text-align:center;
+	font : bold 1.5em "Trebuchet MS";}
+
+div.whatsnew p.date{
+	font-size:  0.8em;
+	font-weight: bold;
+	text-align: left;
+	margin : 3px;
+}
+div.whatsnew span.contents {
+	font-size:  1em;
+	text-align: left;
+	margin : 2px 0 2px 1em;
+}
+
+div.whatsnew p.new:before {
+  content: "NEW!";
+  font-size: .65em;
+  background: #FF0000;
+  color:  #fff;
+  padding: 3px ;
+  margin: 3px;
+  border-radius: 2px;
+}
+
+.ta_info {
+background-color: skyblue;
+margin :10px;
+padding: 10px auto;
+font-size:  1em;
+font-weight : bold;
+text-align: center;
+border-radius: 5px;
+display: block;
+}
+
+
+/*
+p#clock { font : bold 1em 'Courier New';
+  color: #000000; text-align : center; }
+*/
+div.whatsnew {
+  overflow : auto;
+  /*width : 60em; */
+	height : 15em;
+  background-color: #ffffff; border: 2px none;
+  padding: 0.5em;
+	margin : 0.5em;
+	display:inline-block;
+}
+
+
+
+/*191102 menu画面
+https://www.sejuku.net/blog/54622
+https://memorocchi.net/hpcss-tateyokochuou/
+https://saruwakakun.com/html-css/basic/display
+https://creive.me/archives/13552/
+*/
+
+
+.menubox {
+  float: left;
+  margin: 5px 5px;
+  text-align: center;      /* 横方向に中央揃え */
+  width: 100px;
+  height: 80px;
+  background-color: none;
+  line-height :1.5;
+	font-size: 0.8em;
+/*
+  height: 300px;
+  background-color: #def;
+
+  position: relative;
+*/
+}
+.menubox a{
+  box-shadow: 0 2px 0 rgba(136,136,136,1);
+}
+.menubox a:active {
+  /*押したとき*/
+    box-shadow: none;
+    transform: translate3d(0, 3px, 0);
+}
+.menubox a:hover {
+  /*ホバー*/
+	-webkit-transform: translateY(-5px);
+	-ms-transform: translateY(-5px);
+	transform: translateY(-5px);
+}
+
+
+
+.login {
+  display: table-cell;/*inline-block;*/
+  vertical-align: middle;
+  width: inherit;
+  height: inherit;
+    /*font-family: "ヒラギノ丸ゴ Pro W4","Hiragino Maru Gothic Pro";    /* フォントの種類を指定 */
+  color: #FFF;
+  border-radius: 7px;
+
+}
+.bgc1 {
+    background-color:#de9610;   /* 背景色指定 */
+}
+.bgc2 {
+    background-color:blue;   /* 背景色指定 */
+}
+.bgc3 {
+    background-color:limegreen;   /* 背景色指定 */
+}
+.bgc4 {
+    background-color:#65ace4;   /* 背景色指定 */
+}
+.bgc5 {
+   background-color:#a0c238;    /* 背景色指定 */
+}
+.bgc6 {
+    background-color:#0074bf;/* 背景色指定 */
+}
+.bgc7 {
+    background-color:#0074bf;/* 背景色指定 */
+}
+.bgc8 {
+    background-color:tomato;/* 背景色指定 */
+}
+.bgc9 {
+    background-color:navy;/* 背景色指定 */
+}
