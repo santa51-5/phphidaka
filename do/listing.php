@@ -29,7 +29,6 @@
 
 <script src="inc/calendarlay.js" language="JavaScript"></script>
 <SCRIPT TYPE="text/JavaScript">
-<!--
 function allchecks(){
   var elem = document.f1.checks;
 
@@ -51,7 +50,6 @@ function ope(mokuteki,s_id){
     location.href = 'descript.php?マスタID='+s_id+'&mode=7&modori=1';break;
  }
 }
--->
 </SCRIPT>
 </HEAD>
 <?php
@@ -121,7 +119,7 @@ if($_POST==""){
   switch ($_POST["kigen"]){
     case "期限切れ":
     case "期限切れ集計":
-      $sql1="次回校正日 BETWEEN #".date('Y-m-d', strtotime('first day of ' . "20".$_POST["Y1_kiDATE"]."/".$_POST["M1_kiDATE"]))."# AND #".date('Y-m-d', strtotime('first day of ' . "20".$_POST["Y2_kiDATE"]."/".$_POST["M2_kiDATE"]))."# ";
+      $SQL1="次回校正日 BETWEEN #".date('Y-m-d', strtotime('first day of ' . "20".$_POST["Y1_kiDATE"]."/".$_POST["M1_kiDATE"]))."# AND #".date('Y-m-d', strtotime('first day of ' . "20".$_POST["Y2_kiDATE"]."/".$_POST["M2_kiDATE"]))."# ";
       break;
     case "取消":
       unset($_SESSION["Y1_YDATE"]);
@@ -137,29 +135,29 @@ if($_POST==""){
       break;
     default: //校正予定の場合
       $M=date("y-m-d",strtotime("20".$_POST["y1_YDATE"]."/".$_POST["m1_ydata"]."/01"." -1 month"));
-      $sql1 = "次回校正日<#".date("Y/m/d",strtotime("last day of ".$M))."# ";
+      $SQL1 = "次回校正日<#".date("Y/m/d",strtotime("last day of ".$M))."# ";
       break;
   } 
 
-//使用
+  //使用
   if(!$_POST["kigen_mishochi"] && !$_POST["kigen_haiki"]){
     $SQL1 .= "AND ";
     $SQL1 .= "使用区分コード='1' ";
   } 
 
 
-//未処置
+  //未処置
   if($_POST["kigen_mishochi"]){
     $SQL1 .= "AND ";
     $SQL1 .= "使用区分コード='4' ";
   } 
-//廃棄
+  //廃棄
   if($_POST["kigen_haiki"]){
     $SQL1 .=  "AND ";
     $SQL1 .= "使用区分コード= '3' ";
   } 
 
-//SESSIONへ格納
+  //SESSIONへ格納
   $_SESSION['Y1_kiDATE']= $_POST["Y1_kiDATE"];
   $_SESSION['M1_kiDATE']= $_POST["M1_kiDATE"];
   $_SESSION['Y2_kiDATE']= $_POST["Y2_kiDATE"];
@@ -167,9 +165,9 @@ if($_POST==""){
   $_SESSION['kigen_haiki']= $_POST["kigen_haiki"];
   $_SESSION['kigen_mishochi']= $_POST["kigen_mishochi"];
 
-  $SQL1 = " where ".$sql1;
+  $SQL1 = " where ".$SQL1;
 
-  $_SESSION['back'] = $sql1;
+  $_SESSION['back'] = $SQL1;
 
   if($_POST["kigen"]=="期限切れ集計" || $_POST["kigen"]=="集計"){
     $_SESSION['SHUKEI_MODE']= 4;
@@ -179,15 +177,15 @@ if($_POST==""){
 
 }else{
   //追加ボタンからの処理
-  $SQL1=("back");
+  $SQL1=$_SESSION["back"];
   //response.redirect "debug.asp?st1="&SQL & "--1---" & sql1
 } 
 
 include "../inc/paging.php";
 
-$sql1 = $_SESSION["back"];
-$SQL0 = $SQL.$sql1." order by ".$strOrderBy.";";
-error_log($SQL1,"3","./debug.log");
+$SQL1 = $_SESSION["back"];
+$SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
+error_log($SQL0,"3","./debug.log");
 
 $NM_DB = $_COOKIE['DSN_Campany'];
 // ①DB接続しSQLを発行してデータを取得

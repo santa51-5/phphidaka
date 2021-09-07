@@ -550,7 +550,7 @@ if(empty($_POST)){
 		$flag = True;
 	}
 	$_SESSION['id1'] = $_POST['id1'];
-error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
+//error_log($SQL,"3","./debug2.log");
 	//'管理数字
 
 	if(!empty($_POST['id2']) and !empty($_POST['id3'])){
@@ -561,6 +561,10 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
 		}
 		$SQL .= "管理数字>=".$_POST['id2']." and 管理数字<=".$_POST['id3']." ";
 		$flag = True;
+
+
+
+
 	}elseif(!empty($_POST['id2']) and empty($_POST['id3'])){
 		if($flag){
 			$SQL .= "AND ";
@@ -675,26 +679,26 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
 	//所番地３
 	if (($_POST["sec3"]!="" && $_POST["sec3"]!="指定なし")){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 = "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		} 
-		$SQL=$SQL."所番地分類3='".$_POST["sec3"]."' ";
-		$flag=true;
+		$SQL .= "所番地分類3='".$_POST["sec3"]."' ";
+		$flag = true;
 	} 
 	$_SESSION["sec3"]= $_POST["sec3"];
 
 	//所番地4
 	if(($_POST["sec4"]!="" && $_POST["sec4"]!="指定なし")){
 		if ($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		} 
-		$SQL=$SQL."所番地分類4='".$_POST["sec4"]."' ";
-		$flag=true;
+		$SQL .= "所番地分類4='".$_POST["sec4"]."' ";
+		$flag = true;
   	} 
   
   	$_SESSION["sec4"] = $_POST["sec4"];
@@ -702,31 +706,31 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
   	//所番地5
   	if(($_POST["sec5"]!="" && $_POST["sec5"]!="指定なし")){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		} 
-		$SQL=$SQL."置き場1='".$_POST["sec5"]."' ";
-		$flag=true;
+		$SQL .= "置き場1='".$_POST["sec5"]."' ";
+		$flag = true;
   	} 
   	$_SESSION["sec5"] = $_POST["sec5"];
   
 	 //サイズ
   	if($_POST["size"]!=""){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		} 
 		if(is_numeric($_POST["size"])){
-	  		$SQL=$SQL."(サイズ='".$_POST["size"]."' or 最大値=".$_POST["size"].	") ";
+	  		$SQL .= "(サイズ='".$_POST["size"]."' or 最大値=".$_POST["size"].	") ";
 		}else{
 	  		if ($_POST["aimai"]){
-				$SQL=$SQL."サイズ like '%".$_POST["size"]."%' ";
+				$SQL .= "サイズ like '%".$_POST["size"]."%' ";
 	  		}else{
-				$SQL=$SQL."サイズ='".$_POST["size"]."' ";
+				$SQL .= "サイズ='".$_POST["size"]."' ";
 	  		} 
 		}
 		$flag=true;
@@ -736,56 +740,55 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
 	//管理状態
 	if(($_POST["kanrijoutai"]!="" && $_POST["kanrijoutai"]!="指定なし")){
   		if($flag){
-    		$SQL=$SQL."AND ";
-    		$SQL1=$SQL1."&";
+    		$SQL .= "AND ";
+    		$SQL1 .= "&";
   		}else{
-    		$SQL=$SQL."WHERE ";
+    		$SQL .= "WHERE ";
   		} 
-  		$SQL=$SQL."使用区分コード='".$_POST["kanrijoutai"]."' ";
-  		$flag=true;
+  		$SQL .= "使用区分コード='".$_POST["kanrijoutai"]."' ";
+  		$flag = true;
 	} 
 	$_SESSION["kanrijoutai"] = $_POST["kanrijoutai"];
 
 	//検査周期
 	if(($_POST["shuki"]!="" && $_POST["shuki"]!="指定なし")){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		}
-		$SQL=$SQL."検査周期=".$_POST["shuki"]." ";
-		$flag=true;
+		$SQL .= "検査周期=".$_POST["shuki"]." ";
+		$flag = true;
   	} 
   	$_SESSION["shuki"] = $_POST["shuki"];
   
   	//最新校正日
   	if($_POST["data1"]!=""){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		}
-	} 
-	if ($_POST["data2"]==""){
-	  $data2=$_POST["data1"];
-	}else{
-	  $data2=$_POST["data2"];
-	}
-	$SQL=$SQL."最新校正日 between #".$_POST["data1"]."# and #".$data2."# ";
-	$flag=true;
-	 
+		if ($_POST["data2"]==""){
+	    	$data2=$_POST["data1"];
+		}else{
+	  		$data2=$_POST["data2"];
+		}
+		$SQL .= "最新校正日 between #".$_POST["data1"]."# and #".$data2."# ";
+		$flag=true;
+	  } 
   	$_SESSION["data1"] = $_POST["data1"];
   	$_SESSION["data2"] = $_POST["data2"];
   
 	  //品番
   	if($_POST["hinban"]!=""){
 		if($flag){
-	  		$SQL=$SQL."AND ";
-	  		$SQL1=$SQL1."&";
+	  		$SQL .= "AND ";
+	  		$SQL1 .= "&";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		}
 		$SQL=$SQL."品番='".$_POST["hinban"]."' ";
 		$flag=true;
@@ -795,11 +798,11 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
  	 //制約
   	if(!$admin && ("ID_kaishamei")=="mannou"){
 		if($flag){
-	  		$SQL=$SQL."AND ";
+	  		$SQL .= "AND ";
 		}else{
-	  		$SQL=$SQL."WHERE ";
+	  		$SQL .= "WHERE ";
 		}
-		$SQL=$SQL."最新校正日>=#".$kikan."# ";
+		$SQL .= "最新校正日>=#".$kikan."# ";
 		$flag=true;
   	} 
   	unset($_SESSION["order1"]);
@@ -841,10 +844,9 @@ error_log($SQL.$kikan.var_export($flag.$_POST['id1']),"3","./debug1.log");
 		unset($_SESSION["hinban"]);
 		header("Location: "."SEARCH.php");
   	} 
+error_log("\n[".date('Y-m-d H:i:s')."]".$SQL."\n","3","./debug.log");
   
-	  error_log($SQL,"3","./debug.log");
-  
-  	//header("Location: ".SITE_URL."./do/listing.php");
+  	header("Location: ".SITE_URL."./do/listing.php");
   	//030414>
 } 
   
