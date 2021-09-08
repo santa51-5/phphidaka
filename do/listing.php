@@ -344,7 +344,7 @@ if ($count>0){
 	<? 
 
       $intRecordsShown=$intRecordsShown+1;
-      $tbodycolor=$not$tbodycolor;
+      $tbodycolor=!$tbodycolor;
 
     } 
 //レベル表\示の判別
