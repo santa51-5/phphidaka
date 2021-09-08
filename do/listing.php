@@ -70,9 +70,9 @@ include '../inc/nocopy.inc';
 </HEADER>
 
 <?php
-include '../inc/headmenu_listing.inc';
-include '../inc/print.php';
-include '../inc/hiduke_f.inc';
+include ('../inc/headmenu_listing.inc');
+include ('../inc/print.php');
+include ('../inc/hiduke_f.inc');
 
 //データの格納
 $kikan="#2001/04/01"; //期間
@@ -100,10 +100,7 @@ $a2p_database=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
 $db=mysql_connect("localhost",$a2p_uid,$a2p_pwd);
 mysql_select_db($a2p_database,$db);
 */
-$SQL="SELECT 管理記号,管理数字,管理補助記号,管理補助数字,製造番号,全名称,所番地分類1,所番地分類2,所番地1,所番地2,最小値,最大値,目量,"
-  ."サイズ,通り側,止まり側,登録年月日,備考1,型式,所番地3,所番地分類3,所番地分類4,最新校正日,次回校正日,マスタID,検査周期,型式番号,型式コード,"
-  ."器物分類コード,寸法２,使用区分コード,使用区分,桁,器物分類名,isize,レベル,置き場1,置き場2,品番 FROM iマスター ";
-
+$SQL="SELECT * FROM tb_imaster ";
 
 //フォームからのデータがない場合
 if($_POST==""){
@@ -181,7 +178,7 @@ if($_POST==""){
   //response.redirect "debug.asp?st1="&SQL & "--1---" & sql1
 } 
 
-include "../inc/paging.php";
+include ('../inc/paging.php');
 
 $SQL1 = $_SESSION["back"];
 $SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
@@ -192,10 +189,7 @@ $NM_DB = $_COOKIE['DSN_Campany'];
 $dbh = get_db_connect($_COOKIE['DSN_Campany']);
 $errs = array();
 
-
-
 $rs=Record_Load($dbh,$SQL0);
-
 
 //ページネーション初期設定
 $intPageCount=1;
@@ -244,7 +238,7 @@ if ($count>0){
   </DIV>
 
 
-<!--#include file=inc/list_search.php -->
+<!--#include file=../inc/list_search.php -->
 
 
 <DIV ID="detail" class="ta_list nocopy" >
