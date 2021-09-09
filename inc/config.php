@@ -14,4 +14,5 @@ define('DSN_master', 'mysql:dbname=db_hmaster;host=localhost;charset=utf8');
 
 error_reporting(E_ALL & ~E_NOTICE);
 //session_set_cookie_params(1440, '/');
+ini_set("memory_limit", "512M");
 ?>

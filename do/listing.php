@@ -207,60 +207,33 @@ if ($intPageCurrent<1){
   $intPageCurrent=1;
 } 
 ?>
-
-
 <div id=detail_header>
 <DIV class="triangle1"></div>
-
-<? 
-print "<p class='hm_title1'>検索結果</p>";
-//response.redirect "debug.asp?st1="&sql0&"       "& admin
-if ($count>0){
-  print "<p class='hm_title2'>該当件数：　<strong>".mysql_num_rows($rs_query)."</strong> 件</p>";
+<?php 
+echo "<p class='hm_title1'>検索結果</p>";
+if($count>0){
+  echo "<p class='hm_title2'>該当件数：　<strong>{$count}</strong> 件</p>";
   //Recordset オブジェクト内のカレントレコードのページを設定します
-  echo $intPageCurrent;
+//  echo $intPageCurrent;
   //データの格納
-  echo 1;
-  echo "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
+  $_SESSION['modori']= 1;
+  $_SESSION['back'] = "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
 
   //復活解除手続
+  /*不明のため一旦注釈
   if ($_GET["mode"]=="7"){
-    $fukatsu_kaijo[$_GET["マスタID"]];
-  } 
-  ?>
+    fukatsu_kaijo $_GET['master_ID'];
+  } */
+?>
 
-  <? 
-  //検索条件表\示
-  // <!--#include file=chushutsu.asp-->
-  ?>
-
-
-  </DIV>
-
-
-<!--#include file=../inc/list_search.php -->
-
-
+</DIV>
+<?php
+  include ("../inc/list_search.php") ;
+?>
 <DIV ID="detail" class="ta_list nocopy" >
-
-<!--
-
-<TABLE>
-<TR><TD>
--->
 <FORM NAME=f1 action=addchecklist.php method=post>
-<!--
-
-</TD></TR>
-
-
-<TR><TD>
--->
-
-<TABLE>
-<thead>
-   <tr>
-<? //------------- ?>
+<TABLE><thead><tr>
+<?php //------------- ?>
 	<TH rowspan=2 width=30>オペ</TH>
 	<TH rowspan=2 width=80>管理番号</TH>
 	<TH width=150>測定器名</TH>
@@ -268,137 +241,50 @@ if ($count>0){
 	<TH rowspan=2 width=150>サイズ</TH>
 	<TH width=100>登録年月日</TH>
 	<th colspan=2 rowspan=2 width=300>備考</th>
-   </tr>
-   <tr>
+  </tr>
+  <tr>
 	<Th width=150 class=ta_list_kai>製造番号</TH>
-	<th width=150><?   echo $p3;?>
-  <? 
-  if ($mas_info_s5)
-  {
-
-    print "/".$p5;
-  } 
-
+	<th width=150><?=$p3;?>
+<?php
+  if($mas_info_s5){print "/".$p5;} 
 ?>
   </th>
-	<?   if ($ADMIN)
-  {
+<?php
+  if ($ADMIN){
 ?>
 	<TH width=100>最新校正日<br></TH>
-	<?   }
-    else
-  {
+<?php 
+  }else{
 ?>
 	<TH width=100>校正周期<br></TH>
-	<?   } ?>
-    </tr>
-</thead>
-   <tbody>
-<? 
-  echo 0;
-  while($intRecordsShown<$intPageSize && !($rs==0))
-  {
-
-
-
-    if ($rs["レベル"]<2 || !isset($rs["レベル"]))
-    {
-//レベル表\示の判別
-
-
-
+<?php
+  }
+?>
+  </tr>
+</thead><tbody>
+<?php
+  $intRecordsShown= 0;
+  while($intRecordsShown<$intPageSize && !($rs==0)){
+    if ($rs["レベル"]<2 || !isset($rs["レベル"])){//レベル表示の判別
       $akahyouji=false;
-
-      if ($rs["最新校正日"]<$kikan && ("ID_kaishamei")=="mannou")
-      {
-
+      if ($rs["最新校正日"]<$kikan && ($_SESSION("ID_kaishamei")=="mannou")){
         $akahyouji=true;
       } 
-
-
-//if akahyouji then
-//if admin then ?>
-			<!--#include file=listing_1.php -->
-		<? 
-//end if
-//else
-?>
-
-<? //if rs("管理記号")="N" and rs("管理数字")=1041 then
-//response.redirect "debug.asp?st1="&session.contents("ID_kaishamei")&"       "& akahyouji&rs("管理記号") & rs("管理数字")
-//response.write "<td>123</td>"
-//end if ?>
-
-
-
-		<? //<!--#include file=listing_1.asp --> ?>
-
-	<? //end if 'akahyouji ?>
-
-	<? 
-
+			include ("listing_1.php");
       $intRecordsShown=$intRecordsShown+1;
       $tbodycolor=!$tbodycolor;
-
-    } 
-//レベル表\示の判別
-
-    $rs=mysql_fetch_array($rs_query);
-
+    }    //レベル表示の判別
   } 
-?>
-
-
-<? 
-  
-?>
-
-
-<? 
-  mysql_close($db);
-
-  $rs=null;
-
-  $db=null;
-
-
-?>
-</td>
-</tr>
-</tbody>
-</table>
-
-
-
-<!--
-
-</TD></TR>
--->
-</form>
-<!--
-
-</TABLE>
--->
-
-</DIV>
-<br>
-
-
-<br>
-
-
-
-
-<? }
-  else
-{
-?>
-<? 
+  ?>
+  </td></tr></tbody></table></form>
+  </DIV>
+  <br>
+  <br>
+  <?php
+}else{
   print "該当するデータはありませんでした";
   print "<A HREF='search.php'>戻る</A>";
-
 } 
-
 ?>
 <!--#include file=henkou.php -->
 
@@ -412,4 +298,3 @@ if ($count>0){
 </div>
 </BODY>
 </html>
-
