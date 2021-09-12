@@ -65,8 +65,8 @@ while($pl_count<=$pl_end && $pl_count<=$intPageCount){
 //Next
 if($pl_end<$intPageCount){
   print "<li><a class=pre_next href='listing.php?page="
-  .$pl_start+11
-  ."&pl_start=".$pl_start+10
+  .($pl_start+11)
+  ."&pl_start=".($pl_start+10)
   ."&pagesize=".$intPageSize
   ."&order=".rawurlencode($strOrderBy)
   ."'>>>></a></li>";

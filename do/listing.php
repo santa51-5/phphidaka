@@ -182,7 +182,10 @@ include ('../inc/paging.php');
 
 $SQL1 = $_SESSION["back"];
 $SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
-error_log($SQL0,"3","./debug.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL:".$SQL,"3","./debug00.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL0:".$SQL0,"3","./debug0.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1:".$SQL1,"3","./debug1.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."strOrderBy:".$strOrderBy,"3","./debugstrOrderBy.log");
 
 $NM_DB = $_COOKIE['DSN_Campany'];
 // ①DB接続しSQLを発行してデータを取得
