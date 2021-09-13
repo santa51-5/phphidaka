@@ -268,9 +268,9 @@ if($count>0){
 <?php
   $intRecordsShown= 0;
   while($intRecordsShown<$intPageSize && !($rs==0)){
-    if ($rs["レベル"]<2 || !isset($rs["レベル"])){//レベル表示の判別
+    if ($rs["DISP_LEVEL"]<2 || !isset($rs["DISP_LEVEL"])){//レベル表示の判別
       $akahyouji=false;
-      if ($rs["最新校正日"]<$kikan && ($_SESSION("ID_kaishamei")=="mannou")){
+      if ($rs["InspDATE_last"]<$kikan && ($_SESSION["ID_kaishamei"]=="mannou")){
         $akahyouji=true;
       } 
 			include ("listing_1.php");

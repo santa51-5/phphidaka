@@ -81,7 +81,7 @@ print "</ul></TD></tr></table>";
 <td width=100px>
 <div>
 <select size="1" name="pagesize">
-<? 
+<?php
 for ($intI=10; $intI<=100; $intI=$intI+10){
   $strOption="<option value='".$intI."'";
   if ($intI==$intPageSize){
@@ -97,42 +97,42 @@ for ($intI=10; $intI<=100; $intI=$intI+10){
 
 <option value="M_ID1">管理番号</option>
 <option value="	C_kibutsu"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"C_kibutsu")){echo " selected";} 
 ?>
 >名称</option>
 <option value="C_katashiki"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"C_katashiki")){echo " selected";} 
 ?>
 >型式</option>
 <option value="SEC1"
-<? 
+<?php 
 if (strpos($_SESSION["order1"],"SEC1")){echo " selected";} 
 ?>
 ><?=$p1;?></option>
 <option value="SEC2"
-<? 
+<?php 
 if (strpos($_SESSION["order1"],"SEC2")){echo " selected";} 
 ?>
 ><?=$p2;?></option>
 <option value="SEC3"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"SEC3")){echo " selected";} 
 ?>
-><? echo $p3;?></option>
+><?=$p3;?></option>
 <option value="Inspection_cycle"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"Inspection_cycle")){echo " selected";} 
 ?>
 >検査周期</option>
 <option value="C_use"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"C_use")){echo " selected";} 
 ?>
 >管理状態</option>
 <option value="InspDATE_last"
-<? 
+<?php 
 if(strpos($_SESSION["order1"],"InspDATE_last")){echo " selected";} 
 ?>
 >最新校正日</option>
@@ -142,12 +142,12 @@ if(strpos($_SESSION["order1"],"InspDATE_last")){echo " selected";}
 <td>
 <select size=1 name=order2>
 <option value=""
-<? 
+<?php 
 if(!(strpos($_SESSION["order2"],"DESC"))){echo " selected";}
 ?>
 >昇順</option>
 <option value="DESC"
-<? 
+<?php 
 if(strpos($_SESSION["order2"],"DESC")){echo " selected";} 
 ?>
 >降順</option>
@@ -156,58 +156,58 @@ if(strpos($_SESSION["order2"],"DESC")){echo " selected";}
 
 <td>②<select size=1 name=order3>
 <OPTION value="NULL"
-<? 
-if ($_SESSION("order3")=="NULL"){print " selected";} 
+<?php 
+if($_SESSION["order3"]){echo " selected";} 
 ?>
 >指定なし</OPTION>
-<option value="管理番号"
-<? 
-if($_SESSION("order3")=="管理番号"){print " selected";} 
+<option value="M_ID1"
+<?php 
+if($_SESSION["order3"]=="M_ID1"){echo " selected";} 
 ?>
 >管理番号</option>
-<option value="器物分類コード"
-<? 
-if(strpos($_SESSION("order3"),"器物分類コード")){echo " selected";} 
+<option value="C_kibutsu"
+<?php 
+if(strpos($_SESSION["order3"],"C_kibutsu")){echo " selected";} 
 ?>
 >名称</option>
-<option value="型式コード"
-<? 
-if(strpos($_SESSION("order3"),"型式コード")){echo " selected";} 
+<option value="C_katashiki"
+<?php 
+if(strpos($_SESSION["order3"],"C_katashiki")){echo " selected";} 
 ?>
 >型式</option>
-<option value="所番地分類1"
-<? 
-if(strpos($_SESSION("order3"),"所番地分類1")){echo " selected";} 
+<option value="SEC1"
+<?php 
+if(strpos($_SESSION["order3"],"SEC1")){echo " selected";} 
 ?>
-><? echo $p1;?></option>
-<option value="所番地分類2"
+><?=$p1;?></option>
+<option value="SEC2"
 <? 
-if(strpos($_SESSION("order3"),"所番地分類2")){echo " selected";} 
+if(strpos($_SESSION["order3"],"SEC2")){echo " selected";} 
 ?>
-><? echo $p2;?></option>
-<option value="所番地分類3"
+><?=$p2;?></option>
+<option value="SEC3"
 <? 
-if(strpos($_SESSION("order3"),"所番地分類3")){echo " selected";} 
+if(strpos($_SESSION["order3"],"SEC3")){echo " selected";} 
 ?>
-><? echo $p3;?></option>
-<option value="検査周期"
-<? 
-if(strpos($_SESSION("order3"),"検査周期")){echo " selected";} 
+><?=$p3;?></option>
+<option value="Inspection_cycle"
+<?php 
+if(strpos($_SESSION["order3"],"Inspection_cycle")){echo " selected";} 
 ?>
 >検査周期</option>
-<option value="使用区分コード"
-<? 
-if(strpos($_SESSION("order3"),"使用区分コード")){echo" selected";}
+<option value="C_use"
+<?php 
+if(strpos($_SESSION["order3"],"C_use")){echo" selected";}
 ?>
 >管理状態</option>
 <option value="isize"
-<? 
-if(strpos($_SESSION("order3"),"isize")){echo " selected";} 
+<?php 
+if(strpos($_SESSION["order3"],"isize")){echo " selected";} 
 ?>
 >サイズ</option>
-<option value="最新校正日"
-<? 
-if(strpos($_SESSION("order3"),"最新校正日")){echo " selected";} 
+<option value="InspDATE_last"
+<?php 
+if(strpos($_SESSION["order3"],"InspDATE_last")){echo " selected";} 
 ?>
 >最新校正日</option>
 </select>
@@ -216,77 +216,71 @@ if(strpos($_SESSION("order3"),"最新校正日")){echo " selected";}
 <td>
 <select size=1 name=order4>
 <option value=""
-<? 
-if(strpos($_SESSION("order4"),"DESC")){echo " selected";} 
+<?php 
+if(!strpos($_SESSION["order4"],"DESC")){echo " selected";} 
 ?>
 >昇順</option>
 <option value="DESC"
-<? 
-if(strpos($_SESSION("order4"),"DESC")){echo " selected";} 
+<?php 
+if(strpos($_SESSION["order4"],"DESC")){echo " selected";} 
 ?>
 >降順</option>
 </select>
 </td>
 <td>③<select size=1 name=order5>
 <OPTION value="NULL"
-<? 
-if ($_SESSION("order3")=="NULL"){
-  print " selected";
-} 
-
+<?php 
+if ($_SESSION["order3"]){print " selected";} 
 ?>
 >指定なし</OPTION>
-<option value="管理番号"
-<? 
-if($_SESSION("order5")=="管理番号"){
-  print " selected";
-} 
-
+<option value="M_ID1"
+<?php 
+if($_SESSION["order5"]=="M_ID1"){print " selected";} 
 ?>
 >管理番号</option>
-<option value="器物分類コード"
-<? 
-if(strpos($_SESSION("order5"),"器物分類コード")){echo " selected";} 
+<option value="C_kibutsu"
+<?php 
+if(strpos($_SESSION["order5"],"C_kibutsu")){echo " selected";} 
 ?>
 >名称</option>
-<option value="型式コード"
-<? 
-if(strpos($_SESSION("order5"),"型式コード")){echo " selected";} 
+<option value="C_katashiki"
+<?php 
+if(strpos($_SESSION["order5"],"C_katashiki")){echo " selected";} 
 ?>
 >型式</option>
-<option value="所番地分類1"
-<? 
-if(strpos($_SESSION("order5"),"所番地分類1")){echo " selected";} 
+<option value="SEC1"
+<?php 
+if(strpos($_SESSION["order5"],"SEC1")){echo " selected";} 
 ?>
-><? echo $p1;?></option>
-<option value="所番地分類2"
-<? 
-if(strpos($_SESSION("order5"),"所番地分類2")){echo " selected";} 
+><?=$p1;?></option>
+<option value="SEC2"
+<?php 
+if(strpos($_SESSION["order5"],"SEC2")){echo " selected";} 
 ?>
-><? echo $p2;?></option>
-<option value="所番地分類3"
+><?=$p2;?></option>
+<option value="SEC3"
 <? 
-if(strpos($_SESSION("order5"),"所番地分類3")){echo " selected";} 
+if(strpos($_SESSION["order5"],"SEC3")){echo " selected";} 
 ?>
-><? echo $p3;?></option>
-<option value="検査周期"
+><?=$p3;?></option>
+<option value="Inspection_cycle"
 <? 
-if(strpos($_SESSION("order5"),"検査周期",1)){echo " selected";} 
+if(strpos($_SESSION["order5"],"Inspection_cycle",1)){echo " selected";} 
 ?>
 >検査周期</option>
-<option value="使用区分コード"
-<? 
-if(strpos($_SESSION("order5"),"使用区分コード")){echo " selected";} 
+<option value="C_use"
+<?php 
+if(strpos($_SESSION["order5"],"C_use")){echo " selected";} 
 ?>
 >管理状態</option>
 <option value="isize"
-<? 
-if(strpos($_SESSION("order5"),"isize")){echo " selected";} 
+<?php 
+if(strpos($_SESSION["order5"],"isize")){echo " selected";} 
 ?>
 >サイズ</option>
-<option value="最新校正日"
-<? 
-if(strpos($_SESSION("order5"),"最新校正日")){echo " selected";} 
+<option value="InspDATE_last"
+<?php 
+if(strpos($_SESSION["order5"],"InspDATE_last")){echo " selected";} 
 ?>
 >最新校正日</option>
 </select>
@@ -294,19 +288,19 @@ if(strpos($_SESSION("order5"),"最新校正日")){echo " selected";}
 <td>
 <select size=1 name=order6>
 <option value=""
-<? 
-if(strpos($_SESSION("order6"),"DESC")){echo " selected";} 
+<?php 
+if(!strpos($_SESSION["order6"],"DESC")){echo " selected";} 
 ?>
 >昇順</option>
 <option value="DESC"
-<? 
-if(strpos($_SESSION("order6"),"DESC")){echo " selected";} 
+<?php 
+if(strpos($_SESSION["order6"],"DESC")){echo " selected";} 
 ?>
 >降順</option>
 </select></td>
 <td><input type="submit" name="setting"  value="再設定" align=middle ></td>
 <td><input type="submit" name="setting" value="リセット" align=middle ></td>
-<td><a class=buttonB href='listing_p.asp?<? echo ("BACK1");?>'>印刷</td>
+<td><a class=buttonB href='listing_p.asp?<?=$_SESSION["BACK1"];?>'>印刷</td>
 </tr></form></table>
 </div>
 
