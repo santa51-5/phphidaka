@@ -1,4 +1,4 @@
-<? 
+<?php 
 function ck_dellist($s_id){
   $NM_DB = $_COOKIE['DSN_Campany'];
   // ①DB接続しSQLを発行してデータを取得

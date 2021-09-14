@@ -1,4 +1,4 @@
-<? 
+<?php 
 
 function sec_henkou($s_id){
 

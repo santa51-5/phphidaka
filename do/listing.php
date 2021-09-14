@@ -4,7 +4,10 @@
 	require_once('../helpers/db_helper.php');
 	require_once('../helpers/extra_helper.php');
 	include '../inc/login_inc.php';
-?>
+  include 'henkou.php';
+  include 'ck_dellist.php';
+  include 'ck_fukatsulist.php';
+  ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <? // asp2php (vbscript) converted on Sun Jun 13 20:43:59 2021
  ?>
@@ -288,16 +291,9 @@ if($count>0){
   print "該当するデータはありませんでした";
   print "<A HREF='search.php'>戻る</A>";
 } 
-?>
-<!--#include file=henkou.php -->
 
-<!--#include file=ck_dellist.php -->
+include 'inc/footer.php';
 
-<!--#include file=ck_fukatsulist.php -->
-
-
-
-<!--#include file=inc/footer.php -->
-</div>
+?></div>
 </BODY>
 </html>
