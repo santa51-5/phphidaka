@@ -70,9 +70,9 @@ include '../inc/nocopy.inc';
 </HEADER>
 
 <?php
-include '../inc/headmenu_listing.inc';
-include '../inc/print.php';
-include '../inc/hiduke_f.inc';
+include ('../inc/headmenu_listing.inc');
+include ('../inc/print.php');
+include ('../inc/hiduke_f.inc');
 
 //データの格納
 $kikan="#2001/04/01"; //期間
@@ -100,10 +100,7 @@ $a2p_database=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
 $db=mysql_connect("localhost",$a2p_uid,$a2p_pwd);
 mysql_select_db($a2p_database,$db);
 */
-$SQL="SELECT 管理記号,管理数字,管理補助記号,管理補助数字,製造番号,全名称,所番地分類1,所番地分類2,所番地1,所番地2,最小値,最大値,目量,"
-  ."サイズ,通り側,止まり側,登録年月日,備考1,型式,所番地3,所番地分類3,所番地分類4,最新校正日,次回校正日,マスタID,検査周期,型式番号,型式コード,"
-  ."器物分類コード,寸法２,使用区分コード,使用区分,桁,器物分類名,isize,レベル,置き場1,置き場2,品番 FROM iマスター ";
-
+$SQL="SELECT * FROM tb_imaster ";
 
 //フォームからのデータがない場合
 if($_POST==""){
@@ -181,21 +178,21 @@ if($_POST==""){
   //response.redirect "debug.asp?st1="&SQL & "--1---" & sql1
 } 
 
-include "../inc/paging.php";
+include ('../inc/paging.php');
 
 $SQL1 = $_SESSION["back"];
 $SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
-error_log($SQL0,"3","./debug.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL:".$SQL,"3","./debug00.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL0:".$SQL0,"3","./debug0.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1:".$SQL1,"3","./debug1.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."strOrderBy:".$strOrderBy,"3","./debugstrOrderBy.log");
 
 $NM_DB = $_COOKIE['DSN_Campany'];
 // ①DB接続しSQLを発行してデータを取得
 $dbh = get_db_connect($_COOKIE['DSN_Campany']);
 $errs = array();
 
-
-
 $rs=Record_Load($dbh,$SQL0);
-
 
 //ページネーション初期設定
 $intPageCount=1;
@@ -213,60 +210,33 @@ if ($intPageCurrent<1){
   $intPageCurrent=1;
 } 
 ?>
-
-
 <div id=detail_header>
 <DIV class="triangle1"></div>
-
-<? 
-print "<p class='hm_title1'>検索結果</p>";
-//response.redirect "debug.asp?st1="&sql0&"       "& admin
-if ($count>0){
-  print "<p class='hm_title2'>該当件数：　<strong>".mysql_num_rows($rs_query)."</strong> 件</p>";
+<?php 
+echo "<p class='hm_title1'>検索結果</p>";
+if($count>0){
+  echo "<p class='hm_title2'>該当件数：　<strong>{$count}</strong> 件</p>";
   //Recordset オブジェクト内のカレントレコードのページを設定します
-  echo $intPageCurrent;
+//  echo $intPageCurrent;
   //データの格納
-  echo 1;
-  echo "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
+  $_SESSION['modori']= 1;
+  $_SESSION['back'] = "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
 
   //復活解除手続
+  /*不明のため一旦注釈
   if ($_GET["mode"]=="7"){
-    $fukatsu_kaijo[$_GET["マスタID"]];
-  } 
-  ?>
+    fukatsu_kaijo $_GET['master_ID'];
+  } */
+?>
 
-  <? 
-  //検索条件表\示
-  // <!--#include file=chushutsu.asp-->
-  ?>
-
-
-  </DIV>
-
-
-<!--#include file=inc/list_search.php -->
-
-
+</DIV>
+<?php
+  include ("../inc/list_search.php") ;
+?>
 <DIV ID="detail" class="ta_list nocopy" >
-
-<!--
-
-<TABLE>
-<TR><TD>
--->
 <FORM NAME=f1 action=addchecklist.php method=post>
-<!--
-
-</TD></TR>
-
-
-<TR><TD>
--->
-
-<TABLE>
-<thead>
-   <tr>
-<? //------------- ?>
+<TABLE><thead><tr>
+<?php //------------- ?>
 	<TH rowspan=2 width=30>オペ</TH>
 	<TH rowspan=2 width=80>管理番号</TH>
 	<TH width=150>測定器名</TH>
@@ -274,137 +244,50 @@ if ($count>0){
 	<TH rowspan=2 width=150>サイズ</TH>
 	<TH width=100>登録年月日</TH>
 	<th colspan=2 rowspan=2 width=300>備考</th>
-   </tr>
-   <tr>
+  </tr>
+  <tr>
 	<Th width=150 class=ta_list_kai>製造番号</TH>
-	<th width=150><?   echo $p3;?>
-  <? 
-  if ($mas_info_s5)
-  {
-
-    print "/".$p5;
-  } 
-
+	<th width=150><?=$p3;?>
+<?php
+  if($mas_info_s5){print "/".$p5;} 
 ?>
   </th>
-	<?   if ($ADMIN)
-  {
+<?php
+  if ($ADMIN){
 ?>
 	<TH width=100>最新校正日<br></TH>
-	<?   }
-    else
-  {
+<?php 
+  }else{
 ?>
 	<TH width=100>校正周期<br></TH>
-	<?   } ?>
-    </tr>
-</thead>
-   <tbody>
-<? 
-  echo 0;
-  while($intRecordsShown<$intPageSize && !($rs==0))
-  {
-
-
-
-    if ($rs["レベル"]<2 || !isset($rs["レベル"]))
-    {
-//レベル表\示の判別
-
-
-
+<?php
+  }
+?>
+  </tr>
+</thead><tbody>
+<?php
+  $intRecordsShown= 0;
+  while($intRecordsShown<$intPageSize && !($rs==0)){
+    if ($rs["DISP_LEVEL"]<2 || !isset($rs["DISP_LEVEL"])){//レベル表示の判別
       $akahyouji=false;
-
-      if ($rs["最新校正日"]<$kikan && ("ID_kaishamei")=="mannou")
-      {
-
+      if ($rs["InspDATE_last"]<$kikan && ($_SESSION["ID_kaishamei"]=="mannou")){
         $akahyouji=true;
       } 
-
-
-//if akahyouji then
-//if admin then ?>
-			<!--#include file=listing_1.php -->
-		<? 
-//end if
-//else
-?>
-
-<? //if rs("管理記号")="N" and rs("管理数字")=1041 then
-//response.redirect "debug.asp?st1="&session.contents("ID_kaishamei")&"       "& akahyouji&rs("管理記号") & rs("管理数字")
-//response.write "<td>123</td>"
-//end if ?>
-
-
-
-		<? //<!--#include file=listing_1.asp --> ?>
-
-	<? //end if 'akahyouji ?>
-
-	<? 
-
+			include ("listing_1.php");
       $intRecordsShown=$intRecordsShown+1;
-      $tbodycolor=$not$tbodycolor;
-
-    } 
-//レベル表\示の判別
-
-    $rs=mysql_fetch_array($rs_query);
-
+      $tbodycolor=!$tbodycolor;
+    }    //レベル表示の判別
   } 
-?>
-
-
-<? 
-  
-?>
-
-
-<? 
-  mysql_close($db);
-
-  $rs=null;
-
-  $db=null;
-
-
-?>
-</td>
-</tr>
-</tbody>
-</table>
-
-
-
-<!--
-
-</TD></TR>
--->
-</form>
-<!--
-
-</TABLE>
--->
-
-</DIV>
-<br>
-
-
-<br>
-
-
-
-
-<? }
-  else
-{
-?>
-<? 
+  ?>
+  </td></tr></tbody></table></form>
+  </DIV>
+  <br>
+  <br>
+  <?php
+}else{
   print "該当するデータはありませんでした";
   print "<A HREF='search.php'>戻る</A>";
-
 } 
-
 ?>
 <!--#include file=henkou.php -->
 
@@ -418,4 +301,3 @@ if ($count>0){
 </div>
 </BODY>
 </html>
-
