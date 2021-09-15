@@ -4,9 +4,9 @@
 	require_once('../helpers/db_helper.php');
 	require_once('../helpers/extra_helper.php');
 	include '../inc/login_inc.php';
-  include 'henkou.php';
-  include 'ck_dellist.php';
-  include 'ck_fukatsulist.php';
+  include './henkou.php';
+  include './ck_dellist.php';
+  include './ck_fukatsulist.php';
   ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <? // asp2php (vbscript) converted on Sun Jun 13 20:43:59 2021
@@ -196,7 +196,9 @@ $dbh = get_db_connect($_COOKIE['DSN_Campany']);
 $errs = array();
 
 $rs=Record_Load($dbh,$SQL0);
-
+//foreach($rs as $key => $value){
+error_log("\n[".date('Y-m-d H:i:s')."] rs==".array_column($rs,'master_id')."\n","3","./debug.log");
+//}
 //ページネーション初期設定
 $intPageCount=1;
 $count = Record_count($dbh,$SQL0);//54; // データの総数
@@ -292,7 +294,7 @@ if($count>0){
   print "<A HREF='search.php'>戻る</A>";
 } 
 
-include 'inc/footer.php';
+include '../inc/footer.php';
 
 ?></div>
 </BODY>

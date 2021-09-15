@@ -7,15 +7,15 @@ $NM_DB = $_COOKIE['DSN_Campany'];
 $dbh = get_db_connect($_COOKIE['DSN_Campany']);
 $errs = array();
   
-  $sqls="Select * from trans where mas_id=".$s_id." AND trans_PR = false ;";
+  $sqls="Select * from tb_trans where master_id='$s_id' AND trans_PR = false ;";
   $rsC=Record_count($dbh,$sqls);
 
   if($rsC==0){
-    $sec_henkou=false;
+    $function_ret=false;
   }else{
-    $sec_henkou=true;
+    $function_ret=true;
   } 
-return $sec_henkou;
+return $function_ret;
 } 
 
 function nyukajouhou_henkou($s_id){
@@ -24,13 +24,13 @@ function nyukajouhou_henkou($s_id){
   $dbh = get_db_connect($_COOKIE['DSN_Campany']);
   $errs = array();
   
-  $sqls="Select * from t_nyukajouhou where mas_id=".$s_id." AND trans_PR = false ;";
+  $sqls="Select * from tb_nyukajouhou where master_id='$s_id' AND nyuka_PR = false ;";
   $rsC=Record_count($dbh,$sqls);
   if($rsC==0){
-    $nyukajouhou_henkou=false;
+    $function_ret=false;
   }else{
-    $nyukajouhou_henkou=true;
+    $function_ret=true;
   } 
-  return $nyukajouhou_henkou;
+  return $function_ret;
 }
 ?>

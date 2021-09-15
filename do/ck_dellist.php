@@ -4,7 +4,7 @@ function ck_dellist($s_id){
   // ①DB接続しSQLを発行してデータを取得
   $dbh = get_db_connect($_COOKIE['DSN_Campany']);
   $errs = array();
-  $sqls="Select * from del where mas_id=".$s_id." AND import = false ;";
+  $sqls="Select * from tb_del where master_id='$s_id' AND import is false ;";
 
   $rsC=Record_count($dbh,$sqls);
 
