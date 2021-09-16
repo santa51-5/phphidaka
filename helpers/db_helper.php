@@ -247,7 +247,7 @@ function Record_Load($_dbh,$_sql){
 function Record_count($_dbh,$_sql){
     
     $sth = $_dbh -> query($_sql);
-    $arycount = $sth -> fetchColumn();
+    $arycount = $sth -> rowcount();//fetchColumn();
     return $arycount;
 }
 //前回のログイン情報取得

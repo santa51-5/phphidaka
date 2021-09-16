@@ -7,7 +7,7 @@ function ck_dellist($s_id){
   $sqls="Select * from tb_del where master_id='$s_id' AND import is false ;";
 
   $rsC=Record_count($dbh,$sqls);
-
+  error_log("\n[".date('Y-m-d H:i:s')."] rsC==".$rsC."\n","3","./debug.log");
   if($rsC==0){
     $function_ret=null;
   }else{

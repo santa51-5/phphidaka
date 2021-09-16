@@ -4,28 +4,28 @@ if($sg<2){
   $st="";
   $st="<table id='hyo_size' class='ta3'>";
   $s1="";
-  if ($rs["ID_size10"]!=""){
-    $s1=$rs["ID_size10"];
+  if ($val["ID_size10"]!=""){
+    $s1=$val["ID_size10"];
   } 
-  if ($rs["ID_size11"]!=""){
-    $s1=$s1." ～ ".$rs["ID_size11"];
+  if ($val["ID_size11"]!=""){
+    $s1=$s1." ～ ".$val["ID_size11"];
   } 
-  if ($rs["ID_size12"]!=""){
-    $s1=$s1." (".$rs["ID_size12"].")";
+  if ($val["ID_size12"]!=""){
+    $s1=$s1." (".$val["ID_size12"].")";
   } 
-  if ($rs["ID_size24"]!=""){
-    $s1=$s1."　(".$rs["ID_size24"].")";
+  if ($val["ID_size24"]!=""){
+    $s1=$s1."　(".$val["ID_size24"].")";
   } 
   $st=$st."<tr><td>".$s1."</tr></td>"; //測定器サイズ完成
 }else{
 //ゲージ
   $s1="";
-  $k_code=$rs["C_katashiki"];
-  $m_code=$rs["C_kibutsu"];
-  $tsu=$rs["ID_size21"];
-  $tome=$rs["ID_size22"];
-  $s=$rs["ID_size20"];
-  $s2=$rs["ID_size24"];
+  $k_code=$val["C_katashiki"];
+  $m_code=$val["C_kibutsu"];
+  $tsu=$val["ID_size21"];
+  $tome=$val["ID_size22"];
+  $s=$val["ID_size20"];
+  $s2=$val["ID_size24"];
   $st="";
   $st="<table id='hyo_size' class='ta3'>";
   switch ($k_code){
@@ -119,9 +119,9 @@ if($sg<2){
 
 $st=$st."</table>"; //サイズ完成
 $size=$st;
-if((strpos($rs["ID_size20"],"/")) || (strpos($rs["ID_size20"],"+"))  || (strpos($rs["ID_size20"],"-"))){
+if((strpos($val["ID_size20"],"/")) || (strpos($val["ID_size20"],"+"))  || (strpos($val["ID_size20"],"-"))){
   $st="<table id='hyo_size'_class='ta3'>";
-  $st=$st."<tr><td>".$rs["ID_size20"]."</tr></td></TABLE>";
+  $st=$st."<tr><td>".$val["ID_size20"]."</tr></td></TABLE>";
   $size=$st;
 } 
 ?>

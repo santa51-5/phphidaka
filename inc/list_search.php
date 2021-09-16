@@ -1,7 +1,7 @@
 <DIV class="noprint" id="listing_search">
 
 <?php 
-print "<form action=listing.asp method=post>";
+print "<form action=listing.php method=post>";
 print "<table class='listing_search_nav'><tr><th width=50px>";
 print "<span class='listing_search_page'>PAGE</span></th><td width=150px><input type=text id=text1 name=JUMP size=5 VALUE=".$intPageCurrent
 ."> / ".$intPageCount."</td>";
@@ -300,7 +300,7 @@ if(strpos($_SESSION["order6"],"DESC")){echo " selected";}
 </select></td>
 <td><input type="submit" name="setting"  value="再設定" align=middle ></td>
 <td><input type="submit" name="setting" value="リセット" align=middle ></td>
-<td><a class=buttonB href='listing_p.asp?<?=$_SESSION["BACK1"];?>'>印刷</td>
+<td><a class=buttonB href='listing_p.php?<?=$_SESSION["back1"];?>'>印刷</td>
 </tr></form></table>
 </div>
 

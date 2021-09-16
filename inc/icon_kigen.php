@@ -1,6 +1,6 @@
 <?php 
-$saishin=$rs["InspDATE_last"];
-$shuki=$rs["Inspection_cycle"];
+$saishin=$val["InspDATE_last"];
+$shuki=$val["Inspection_cycle"];
 if(!isset($saishin)){
   $saishin=time();
 } 
