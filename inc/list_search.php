@@ -1,7 +1,7 @@
 <DIV class="noprint" id="listing_search">
 
 <?php 
-print "<form action=listing.asp method=post>";
+print "<form action=listing.php method=post>";
 print "<table class='listing_search_nav'><tr><th width=50px>";
 print "<span class='listing_search_page'>PAGE</span></th><td width=150px><input type=text id=text1 name=JUMP size=5 VALUE=".$intPageCurrent
 ."> / ".$intPageCount."</td>";
@@ -96,44 +96,47 @@ for ($intI=10; $intI<=100; $intI=$intI+10){
 <td style="padding-left:30px;">①<select size=1 name=order1>
 
 <option value="M_ID1">管理番号</option>
-<option value="	C_kibutsu"
+<option value="C_kibutsu"
 <?php 
-if(strpos($_SESSION["order1"],"C_kibutsu")){echo " selected";} 
+if(!strpos($_SESSION["order1"],"C_kibutsu")===false){echo " selected";} 
 ?>
 >名称</option>
 <option value="C_katashiki"
 <?php 
-if(strpos($_SESSION["order1"],"C_katashiki")){echo " selected";} 
+if(!strpos($_SESSION["order1"],"C_katashiki")===false){echo " selected";} 
+error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[order1]:".$_SESSION["order1"],"3","./debugstrOrderBy.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[order1]:".(!strpos($_SESSION["order1"],"C_kibutsu")===false),"3","./debugstrOrderBy.log");
+
 ?>
 >型式</option>
 <option value="SEC1"
 <?php 
-if (strpos($_SESSION["order1"],"SEC1")){echo " selected";} 
+if (!strpos($_SESSION["order1"],"SEC1")===false){echo " selected";} 
 ?>
 ><?=$p1;?></option>
 <option value="SEC2"
 <?php 
-if (strpos($_SESSION["order1"],"SEC2")){echo " selected";} 
+if (!strpos($_SESSION["order1"],"SEC2")===false){echo " selected";} 
 ?>
 ><?=$p2;?></option>
 <option value="SEC3"
 <?php 
-if(strpos($_SESSION["order1"],"SEC3")){echo " selected";} 
+if(strpos($_SESSION["order1"],"SEC3")===false){echo " selected";} 
 ?>
 ><?=$p3;?></option>
 <option value="Inspection_cycle"
 <?php 
-if(strpos($_SESSION["order1"],"Inspection_cycle")){echo " selected";} 
+if(!strpos($_SESSION["order1"],"Inspection_cycle")===false){echo " selected";} 
 ?>
 >検査周期</option>
 <option value="C_use"
 <?php 
-if(strpos($_SESSION["order1"],"C_use")){echo " selected";} 
+if(!strpos($_SESSION["order1"],"C_use")===false){echo " selected";} 
 ?>
 >管理状態</option>
 <option value="InspDATE_last"
 <?php 
-if(strpos($_SESSION["order1"],"InspDATE_last")){echo " selected";} 
+if(strpos($_SESSION["order1"],"InspDATE_last")===false){echo " selected";} 
 ?>
 >最新校正日</option>
 </select>
@@ -143,12 +146,15 @@ if(strpos($_SESSION["order1"],"InspDATE_last")){echo " selected";}
 <select size=1 name=order2>
 <option value=""
 <?php 
-if(!(strpos($_SESSION["order2"],"DESC"))){echo " selected";}
+if((strpos($_SESSION["order2"],"DESC"))===false){echo " selected";}
 ?>
 >昇順</option>
 <option value="DESC"
 <?php 
-if(strpos($_SESSION["order2"],"DESC")){echo " selected";} 
+if(!strpos($_SESSION["order2"],"DESC")===false){echo " selected";} 
+error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[order2]:".$_SESSION["order2"],"3","./debugstrOrderBy.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[order2]:".(strpos($_SESSION["order2"],"DESC")),"3","./debugstrOrderBy.log");
+
 ?>
 >降順</option>
 </select>
@@ -300,7 +306,7 @@ if(strpos($_SESSION["order6"],"DESC")){echo " selected";}
 </select></td>
 <td><input type="submit" name="setting"  value="再設定" align=middle ></td>
 <td><input type="submit" name="setting" value="リセット" align=middle ></td>
-<td><a class=buttonB href='listing_p.asp?<?=$_SESSION["BACK1"];?>'>印刷</td>
+<td><a class=buttonB href='listing_p.php?<?=$_SESSION["back1"];?>'>印刷</td>
 </tr></form></table>
 </div>
 

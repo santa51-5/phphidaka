@@ -4,7 +4,10 @@
 	require_once('../helpers/db_helper.php');
 	require_once('../helpers/extra_helper.php');
 	include '../inc/login_inc.php';
-?>
+  include './henkou.php';
+  include './ck_dellist.php';
+  include './ck_fukatsulist.php';
+  ?>
 <!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
 <? // asp2php (vbscript) converted on Sun Jun 13 20:43:59 2021
  ?>
@@ -57,6 +60,9 @@ include '../inc/clock.inc';
 include '../inc/kakunou.php';
 include '../inc/nocopy.inc';
 //include '../inc/login.inc';
+
+
+
 ?>
 
 <BODY onload="clock();">
@@ -76,11 +82,11 @@ include ('../inc/hiduke_f.inc');
 
 //データの格納
 $kikan="#2001/04/01"; //期間
-$admin=$cbool[("admin")]; //管理者
-$ng=$cbool[("ng")]; //ng表示
-$jidou=$cbool[("jidou")]; //自動作成
-$u_haiki=$cbool[("sakujo")]; //廃棄権限
-$u_henkou=$cbool[("henkou")]; //変更権限
+$admin=$$_SESSION[("admin")]; //管理者
+$ng=$_SESSION[("ng")]; //ng表示
+$jidou=$_SESSION[("jidou")]; //自動作成
+$u_haiki=$_SESSION[("sakujo")]; //廃棄権限
+$u_henkou=$_SESSION[("henkou")]; //変更権限
 
 // search.aspからのデータ
 
@@ -106,7 +112,7 @@ $SQL="SELECT * FROM tb_imaster ";
 if($_POST==""){
   
 }elseif($_POST["Y1_YDATE"]!="" || $_POST["Y1_kiDATE"]!=""){
-  //校正予\定と期限切れの年月欄に入力されている場合の処理
+  //校正予定と期限切れの年月欄に入力されている場合の処理
   $HAJIME = $_POST["Y1_kiDATE"]."/".$_POST["M1_kiDATE"]."/"."10";
   $OWARI = $_POST["Y2_kiDATE"]."/".$_POST["M2_kiDATE"]."/"."10";
   //入力データが日付ではなかった場合
@@ -176,6 +182,7 @@ if($_POST==""){
   //追加ボタンからの処理
   $SQL1=$_SESSION["back"];
   //response.redirect "debug.asp?st1="&SQL & "--1---" & sql1
+  error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[back1]:".$_SESSION["back"],"3","./debug00.log");
 } 
 
 include ('../inc/paging.php');
@@ -184,7 +191,7 @@ $SQL1 = $_SESSION["back"];
 $SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
 error_log("\n[".date('Y-m-d H:i:s')."]"."SQL:".$SQL,"3","./debug00.log");
 error_log("\n[".date('Y-m-d H:i:s')."]"."SQL0:".$SQL0,"3","./debug0.log");
-error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1:".$SQL1,"3","./debug1.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1back2:".$SQL1,"3","./debug1.log");
 error_log("\n[".date('Y-m-d H:i:s')."]"."strOrderBy:".$strOrderBy,"3","./debugstrOrderBy.log");
 
 $NM_DB = $_COOKIE['DSN_Campany'];
@@ -193,14 +200,16 @@ $dbh = get_db_connect($_COOKIE['DSN_Campany']);
 $errs = array();
 
 $rs=Record_Load($dbh,$SQL0);
-
+//foreach($rs as $value){
+//var_dump($rs);
+error_log("\n[".date('Y-m-d H:i:s')."] rs00==".$rs['master_ID']."\n","3","./debug.log");
+//}
 //ページネーション初期設定
-$intPageCount=1;
-$count = Record_count($dbh,$SQL0);//54; // データの総数
-$perPage = 10; // １ページあたりのデータ件数 $intPageSize
-$totalPage = ceil($count / $perPage); // 最大ページ数
 
-//end if
+$count = Record_count($dbh,$SQL.$SQL1);//54; // データの総数
+//$intPageSize = 10; // １ページあたりのデータ件数 $intPageSize
+$intPageCount=ceil($count / $intPageSize);//$totalPage = ceil($count / $perPage); // 最大ページ数
+
 //開始位置＋最大表示件数が最大ページ数を超えていた場合
 if ($intPageCurrent>$intPageCount){
   $intPageCurrent=$intPageCount;
@@ -220,7 +229,7 @@ if($count>0){
 //  echo $intPageCurrent;
   //データの格納
   $_SESSION['modori']= 1;
-  $_SESSION['back'] = "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
+  $_SESSION['back1'] = "page=".$intPageCurrent."&pagesize=".$intPageSize."&pl_start=".$pl_start."&order=".$strOrderBy;
 
   //復活解除手続
   /*不明のため一旦注釈
@@ -231,7 +240,7 @@ if($count>0){
 
 </DIV>
 <?php
-  include ("../inc/list_search.php") ;
+    include ("../inc/list_search.php") ;
 ?>
 <DIV ID="detail" class="ta_list nocopy" >
 <FORM NAME=f1 action=addchecklist.php method=post>
@@ -240,7 +249,7 @@ if($count>0){
 	<TH rowspan=2 width=30>オペ</TH>
 	<TH rowspan=2 width=80>管理番号</TH>
 	<TH width=150>測定器名</TH>
-	<th width=150><?   echo $p1;?>/<?   echo $p2;?></th>
+	<th width=150><?=$p1;?>/<?=$p2;?></th>
 	<TH rowspan=2 width=150>サイズ</TH>
 	<TH width=100>登録年月日</TH>
 	<th colspan=2 rowspan=2 width=300>備考</th>
@@ -249,25 +258,39 @@ if($count>0){
 	<Th width=150 class=ta_list_kai>製造番号</TH>
 	<th width=150><?=$p3;?>
 <?php
-  if($mas_info_s5){print "/".$p5;} 
+    if($mas_info_s5){print "/".$p5;} 
 ?>
   </th>
 <?php
-  if ($ADMIN){
+    if ($ADMIN){
 ?>
 	<TH width=100>最新校正日<br></TH>
 <?php 
-  }else{
+    }else{
 ?>
 	<TH width=100>校正周期<br></TH>
 <?php
-  }
+    }
 ?>
   </tr>
 </thead><tbody>
 <?php
+
+  $disp_data = array_slice($rs, $pl_start+($intPageCurrent-1)*$intPageSize, $intPageSize, true);
+  foreach($disp_data as $val){
+    if($val["DISP_LEVEL"]<2 || !isset($val["DISP_LEVEL"])){//レベル表示の判別
+      $akahyouji=false;
+      if ($val["InspDATE_last"]<$kikan && ($_SESSION["ID_kaishamei"]=="mannou")){
+        $akahyouji=true;
+      } 
+      include ("listing_1.php");
+    //$intRecordsShown=$intRecordsShown+1;
+    }
+    $tbodycolor=!$tbodycolor;
+  }
+/*
   $intRecordsShown= 0;
-  while($intRecordsShown<$intPageSize && !($rs==0)){
+  while($intRecordsShown<$intPageSize && $count<=$intRecordsShown){
     if ($rs["DISP_LEVEL"]<2 || !isset($rs["DISP_LEVEL"])){//レベル表示の判別
       $akahyouji=false;
       if ($rs["InspDATE_last"]<$kikan && ($_SESSION["ID_kaishamei"]=="mannou")){
@@ -277,8 +300,9 @@ if($count>0){
       $intRecordsShown=$intRecordsShown+1;
       $tbodycolor=!$tbodycolor;
     }    //レベル表示の判別
+    next($rs);
   } 
-  ?>
+  */?>
   </td></tr></tbody></table></form>
   </DIV>
   <br>
@@ -288,16 +312,9 @@ if($count>0){
   print "該当するデータはありませんでした";
   print "<A HREF='search.php'>戻る</A>";
 } 
-?>
-<!--#include file=henkou.php -->
 
-<!--#include file=ck_dellist.php -->
+include '../inc/footer.php';
 
-<!--#include file=ck_fukatsulist.php -->
-
-
-
-<!--#include file=inc/footer.php -->
-</div>
+?></div>
 </BODY>
 </html>

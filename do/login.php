@@ -129,7 +129,6 @@ if(empty($_POST['usrid'])){
     	$dbh = get_db_connect(DSN_master);//db_masterのtb_hmasterに接続
     	$errs = array();
 		$data = tokuisaki($dbh,$_COOKIE['campany']);
-//error_log(print_r($data,true),"3","./debug.log");//var_dump($data);
 		$_SESSION['ID_kaishamei']=$data['ID_Customer'];//	rss("id")
 		$_SESSION['kaishamei']=$data['Campany_Name'];//rss("会社名")
 		$_SESSION['tantouin']=$data['Name_Customer'];//rss("担当員")
@@ -138,6 +137,7 @@ if(empty($_POST['usrid'])){
 		$_SESSION['p3']=$data['NN_SEC3'];//rss("所番地分類3")
 		$_SESSION['p4']=$data['NN_SEC4'];//rss("所番地分類4")
 		$_SESSION['p5']=$data['NN_SEC5'];//rss("置き場1")
+		error_log("\n[".date('Y-m-d H:i:s')."] data['NN_SEC2']==".$data['NN_SEC2']."\n","3","./debug.log");
 		//$_SESSION['p6']=$data['NN_SEC6'];//rss("置き場2")
 		$_SESSION['m_jidou']=$data['f_AutoCreateDATA'];//rss("自動作成機能")
 		$_SESSION['db_path']=$data['db_path'];//rss("db_path")

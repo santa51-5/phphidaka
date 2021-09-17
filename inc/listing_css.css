@@ -1,0 +1,530 @@
+tbody {
+  font-size: 80%;
+  line-height: 150%;
+}
+tbody.tbody1 { background-color: #EEEEEE; }
+tbody.tbody2 { background-color: #FCFCFC; }
+tbody.tbody3 { background-color: #35f54e; }
+tbody.tbody4 { background-color: #FFFF99; }
+tbody.tbody5 { background-color: #808080; }
+tbody.tbody6 { background-color: #99FF00; }
+tbody.tbody7 { background-color: #20B2AA; }
+tbody.tbody8 { background-color: #ffdead; }
+
+/* 点滅 */
+.blinking{
+    animation:blink 1.5s infinite alternate;
+    }
+@keyframes blink{
+    0% {color: white}
+    100% {color: white}
+}
+
+.blinking0{
+    -webkit-animation:blink 1.5s ease-in-out infinite alternate;
+    -moz-animation:blink 1.5s ease-in-out infinite alternate;
+    animation:blink 1.5s ease-in-out infinite alternate;
+}
+@-webkit-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@-moz-keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+@keyframes blink{
+    0% {opacity:0;}
+    100% {opacity:1;}
+}
+
+.henkou{
+  font-size: 0.6em;
+  background : #F00;
+  border-radius: 4px;     /* 角丸 */
+
+}
+
+/*new.asp*/
+div#detail_header_new {
+padding : 0px 0 0 20px ;
+background-color:#d7e1da; /*transparent*/
+height: 40px;
+overflow: hidden;
+
+}
+div#detail_header_new h1{
+display : inline;
+}
+#detail_header_new a {
+
+    display: inline-block;
+    padding: 10px 20px;
+    margin : 2px;
+    text-decoration: none;
+    background: rgb(228,226,223);
+    color: #000;
+    border-radius: 5px ; /*デザインによる */
+    border-style: solid ;
+    border-color: #000;
+    border-width: 1px;
+
+}
+#detail_header_new a:hover {
+    transition: all .2s linear;
+    background: #fff;
+
+}
+
+/* linsting */
+div#detail_header {
+padding : 0px 0 0 20px ;
+background-color:#d7e1da; /*transparent*/
+height: 40px;
+overflow: hidden;
+/*float : left;*/
+}
+
+/* https://saruwakakun.com/html-css/reference/h-design */
+#detail_header a {
+
+    display: inline-block;
+    padding: 10px 20px;
+    text-decoration: none;
+    background: rgb(228,226,223);
+    color: #000;
+    /* border-radius: 5px; デザインによる */
+
+}
+#detail_header a:hover {
+    transition: all .2s linear;
+    background: rgb(249,194,112);
+
+}
+
+#d_detail_header1 h1 {
+padding: 0.4em 0.5em;/*文字の上下 左右の余白*/
+color: #494949;/*文字色*/
+background: #f4f4f4;/*背景色*/
+border-left: solid 20px #666;/*左線*/
+border-bottom: solid 3px #d7d7d7;/*下線*/
+}
+
+
+
+/* http://un-tech.jp/css-border-triangle/ */
+.triangle1 {
+  width: 0;
+  height: 0;
+  border-top: 19px solid transparent;
+  border-right: 19px solid transparent;
+  border-bottom: 19px solid transparent;
+  border-left: 19px solid #666;
+  float: left;}
+
+.hm_title1 {
+margin : 2px ;
+font-size :1.5em;
+display: inline;
+}
+.hm_title2 {
+padding : 2px ;
+font-size :1.2em;
+display: block;}
+
+.hm_title2 strong{
+font-style : bold;
+}
+
+/*LIST_SERCH.ASPの設定*/
+/* id listing_search */
+/* http://wwx.jp/css-pagination */
+
+
+/*
+.pager {
+    overflow: hidden;
+}
+
+.pager ul {
+    list-style: none;
+    position: relative;
+    left: 50%;
+    float: left;
+}
+
+.pager ul li {
+    margin: 0 1px;
+    position: relative;
+    left: -50%;
+    float: left;
+}
+
+.pager ul li span,
+.pager ul li a {
+    display: block;
+    font-size: 16px;
+    padding: 0.6em 1em;
+    border-radius: 3px;
+}
+
+.pager ul li a {
+    background: #EEE;
+    color: #000;
+    text-decoration: none;
+}
+
+.pager ul li a:hover {
+    background: #333;
+    color: #FFF;
+}
+*/
+
+.listing_search_page{
+  display: inline-block;
+  padding: 0.4em;
+  text-decoration: none;
+  color: #fff;
+  border: double 2px #fff;
+  background-color: #2196F3;
+  border-radius: 3px;
+  font-size: 0.8em;
+}
+
+/* https://www.sejuku.net/blog/57841*/
+#listing_search {
+padding : 0px 0 0 30px ;
+background-color:#edf0e0; /*transparent*/
+/*height: 64px;*/
+overflow: hidden;
+/*float : left;
+display : inline;*/
+}
+
+.listing_search_nav1  {
+ border-collapse: collapse;  /* セルの線を重ねる */
+
+}
+
+.listing_search_nav1 th,td {
+    padding: 6px 5px;
+          /* 余白指定 */
+ text-align : center;
+}
+
+.listing_search_nav1 th {
+    background-color: #2196F3;  /* 背景色指定 */
+    color:  #fff;               /* 文字色指定 */
+    font-weight:  normal;       /* 文字の太さ指定 */
+    position:  relative;        /* 位置指定 */
+    z-index: 10;                /* 重なり調整 */
+    font-size : 0.8em;
+}
+
+
+.listing_search_nav1 th::after {
+    content:'';                 /* 空の要素を作る */
+    position:  absolute;        /* 位置指定 */
+    height: 24px;               /* 高さ指定 */
+    width: 24px;                /* 幅指定 */
+    background-color: #2196F3;  /* 背景色指定 */
+    transform:  rotate(45deg);  /* 要素を回転 */
+    top: 5px;                   /* 位置指定 */
+    right: -12px;               /* 位置指定 */
+    z-index:  -1;               /* 重なり調整 */
+}
+
+.listing_search_nav1 td {
+    background-color:  #edf0e0; /* 背景色指定 */
+    padding-left: 5px;         /* 余白指定 */
+}
+
+a.pre_next {
+  display: block;
+  text-align : center;
+  text-decoration : none;
+  background-color: #fff;
+  border :solid 1px;
+  padding : 3px 3px;
+  border-color : #000;
+  border-radius : 7%;
+}
+
+a.pre_next:hover{
+  background: #808080;
+  color:#fff;
+    font-weight: bold;
+}
+
+a.buttonB {
+display: block;
+text-align : center;
+text-decoration : none;
+background-color: #fff;
+border :solid 1px;
+padding : 3px 3px;
+border-color : #000;
+border-radius : 7%;
+}
+a.buttonB:hover{
+background: #000000;
+color:#fff;
+font-weight: bold;
+}
+
+#detail td.kno a{
+  font-size: 0.8em;
+}
+#detail a:hover{
+  background: #00FFFF;
+  color : #000;
+  border-radius: 4px;     /* 角丸 */
+  padding: 0.2em 0.3em;      /* 内側の余白量 */
+  font-size:0.5em;
+  margin : 1px;
+}
+
+
+
+/* http://taneppa.net/display-inline-block/# */
+
+#listing_search ul.listing_search_nav_ul  {
+list-style-type: none; /*箇条書きのポッチを消す*/
+text-align: center; /* ul の中身を中央揃えにして */
+}
+#listing_search ul.listing_search_nav_ul li  {
+display: inline-block; /* li をインラインブロックで表示して */
+  width: 40px;/*幅も指定できる*/
+  /*height: 20px;/*高さも指定できる*/*/
+  padding: 0px 0;/*余白も指定できる*/
+  margin: 0px 0;/*余白も指定できる*/
+  vertical-align: middle;/*縦の表示位置も指定できる*/
+  background: none;/*背景を水色に*/
+  font-weight: none;/*文字を太字に*/
+  color:white /*文字色を白に*/
+  border : solid 1px;
+  border-color : black;
+}
+#listing_search ul.listing_search_nav_ul a  {
+display: block;          /*<a をブロックで表示して */
+
+padding: 2px;/*余白も指定できる*/
+margin: 2px;/*余白も指定できる*/
+text-decoration: none;
+border : solid 1px;
+border-color : black;
+border-radius : 10%;
+}            /* a に幅を指定 */
+#listing_search ul.listing_search_nav_ul span  {
+display: block;          /*<a をブロックで表示して */
+  font-weight: bold;
+padding: 2px;/*余白も指定できる*/
+margin: 2px;/*余白も指定できる*/
+text-decoration: none;
+border : solid 1px;
+border-color : black;
+border-radius : 10%;
+color : white;
+background-color: black;
+}            /* a に幅を指定 */
+#listing_search ul.listing_search_nav_ul a:hover {
+color: #ff9200;
+ background-color: #ffffff;
+ border: solid 1px #ff9200;
+ border-color : black;
+
+ }            /* a に幅を指定 */
+
+
+/*submit*/
+.listing_search_nav input[type="submit"] {
+display: inline;
+   /*background-image: linear-gradient(0deg, #a7d9f5, #eaf6fd); /* グラデーション */
+   border: 1px solid #3c7fb1; /* 枠線 */
+   border-radius: 0.3em;      /* 角丸 */
+   text-align : center;
+height : 20px;
+width : 50px;
+font-size :0.8em;
+font-weight: bold;
+vertical-align:middle;
+}
+
+.listing_search_nav input[type="submit"]:hover  {
+    /* 透明度を20%に指定 */
+    opacity: 0.5;
+
+}
+
+.listing_search_nav input[type="text"]{
+/* text-align : center; */
+height : 25px;
+background-color:#fff;
+font-size :1.1em;
+font-weight: bold;
+vertical-align:middle;
+display: inline;
+text-align: center;
+}
+
+
+.listing_search_nav select{
+/*text-align : center;*/
+
+height : 20px;
+background-color:#fff;
+font-size :0.9em;
+font-weight: bold;
+}
+
+
+/* class=ta_list */
+
+
+#detail{
+
+display:block;
+
+}
+
+
+#detail.ta_list table {
+/*background-color: #fff;  /* 背景色指定 */
+border: 1px solid #aaa;
+border-bottom: none;
+border-collapse:  separate;/* セルの線を重ねる */
+border-spacing: 0;
+border-radius: 6px;
+
+margin : 5px 5px;
+font-size: 1.2em;
+}
+
+#detail.ta_list table thead th,
+#detail.ta_list table tbody th,
+#detail.ta_list table tbody td {
+/*
+#detail.ta_list th ,
+#detail.ta_list td {*/
+
+padding: 3px;
+border-bottom: 1px solid #aaa;*/
+
+/*    border: solid 1px #666;  /* 枠線指定 */
+/*    padding: 3px;      /* 余白指定 */
+  /* border-bottom:1px solid #666;*/
+}
+
+#detail.ta_list table thead th {
+ background:#EFEFEF;
+ font-size : 0.8em;
+}
+
+#detail.ta_list table thead th {
+  background-color: #ddd;
+}
+#detail.ta_list table tbody th {
+  background-color: #eee;
+}
+
+
+#detail.ta_list table thead th + th,
+#detail.ta_list table tbody td + td ,
+#detail.ta_list table thead th.ta_list_kai,
+#detail.ta_list table tbody td.ta_list_kai {
+  border-left: 1px solid #aaa;
+}
+#detail.ta_list table thead tr:first-child th:first-child {
+  border-radius: 5px 0 0 0;
+}
+#detail.ta_list table thead tr:first-child th:last-child {
+  border-radius: 0 5px 0 0;
+}
+#detail.ta_list table tbody tr:last-child th:first-child {
+  border-radius: 0 0 0 5px;
+}
+#detail.ta_list table tbody tr:last-child th:last-child {
+  border-radius: 0 0 5px 0;
+}
+/*
+#detail.ta_list table tbody tr:last-child th,
+#detail.ta_list table tbody tr:last-child td {
+  border-bottom: none;
+}*/
+#detail.ta_list input[type="button"] {
+padding: 1px;
+margin: 1px;
+font-size: 0.8em;
+}
+
+
+
+
+#detail.ta_list table#hyo_size.ta3 {
+
+border : none ;
+border-collapse : collapse ;
+margin : 0;
+padding: 0;
+
+}
+#detail.ta_list table#hyo_size.ta3  td{
+  border : none ;
+
+}
+
+
+
+
+
+td.limit_size {
+
+font-size : 0.8em ;
+
+}
+
+td.ta_list{
+font-size:0.9em ;
+}
+/*共通*/
+
+th.c1  {
+width : 80px;
+padding-right:10px;
+text-align : RIGHT ;
+border:solid 0px;
+font-size : 0.9em;
+font-weight: bold;}
+
+input.w3  {
+width : 30px;
+}
+input.w5  {
+width : 50px;
+}
+input.w10  {
+width : 100px;
+}
+
+input.w20  {
+width : 200px;
+}
+TD.w1  {
+width : 10px;
+}
+TD.w2  {
+width : 20px;
+}
+TD.w3  {
+width : 30px;
+}
+TD.w5  {
+width : 50px;
+}
+TD.w10  {
+width : 100px;
+}
+
+TD.w20  {
+width : 200px;
+}
