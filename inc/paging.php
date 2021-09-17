@@ -11,18 +11,19 @@ if((strlen($_GET["page"])==0 && strlen($_POST["jump"])==0) || strlen($_POST["set
 } 
 
 //PAGESIZE(ページサイズの決定)
-if(strlen($_GET["pagesize"])==0){
-  if(strlen($_POST["pagesize"])==0){
+if(!strlen($_GET["pagesize"])){
+  if(!strlen($_POST["pagesize"])){
     $intPageSize=10;
   }elseif(strlen($_POST["pagesize"])>0){
     $intPageSize=intval($_POST["pagesize"]);
   } 
 }else{
   $intPageSize=intval($_GET["pagesize"]);
-} 　
+}
 
-//pl_start(ページリストの頭決定)
-if (strlen($_GET["pl_start"])==0){
+
+//pl_start(ページリストの頭決定);
+if(strlen($_GET["pl_start"])==0) {
   $pl_start=0;
 }else{
   $pl_start=intval($_GET["pl_start"]);
@@ -32,7 +33,7 @@ if(strlen($_POST["jump"])>0){
 } 
 
 //order(並べ替え決定) order3,order5
-if (strlen($_POST["order1"])>0){
+if (strlen($_POST["order1"])){
   if ($_POST["order1"]=="M_ID1"){
     $strOrderBy="M_ID1 ".$_POST["order2"].",M_ID2 ".$_POST["order2"].",M_ID3 ,M_ID4 ";
   }else{
@@ -41,29 +42,29 @@ if (strlen($_POST["order1"])>0){
   $_SESSION["order1"] = $_POST["order1"];
   $_SESSION["order2"] = $_POST["order2"];
 } 
-if(strlen($_POST["order3"])>0){
+
+if(strlen($_POST["order3"])){
   if($_POST["order3"]=="M_ID1"){
     $strOrderBy=$strorderby.",M_ID1 ".$_POST["order4"].",M_ID2 ".$_POST["order4"].",M_ID3,M_ID4 ";
   }else{
-    $strOrderBy=$strorderby.",".$_POST["order3"].$_POST["order4"];
+    $strOrderBy=$strOrderBy.",".$_POST["order3"].$_POST["order4"];
   }
   $_SESSION["order3"] = $_POST["order3"];
   $_SESSION["order4"] = $_POST["order4"];
 } 
-
 if (strlen($_POST["order5"])>0){
   if ($_POST["order5"]=="M_ID1"){
-    $strOrderBy=$strorderby.",M_ID1 ".$_POST["order6"].",M_ID2 ".$_POST["order6"].",M_ID3,M_ID4 ";
+    $strOrderBy=$strOrderBy.",M_ID1 ".$_POST["order6"].",M_ID2 ".$_POST["order6"].",M_ID3,M_ID4 ";
   }else{
-    $strOrderBy=$strorderby.",".$_POST["order5"].$_POST["order6"];
+    $strOrderBy=$strOrderBy.",".$_POST["order5"].$_POST["order6"];
   } 
   $_SESSION["order5"] = $_POST["order5"];
   $_SESSION["order6"] = $_POST["order6"];
 } 
-
 if (strlen($_GET["order"])>0 && strlen($strOrderBy)==0){
   $strOrderBy=$_GET["order"];
-} 
+}
+
 if (strlen($strOrderBy)==0 || $_POST["setting"]=="リセット"){
   $strOrderBy="M_ID1,M_ID2,M_ID3,M_ID4";
 } 

@@ -112,7 +112,7 @@ $SQL="SELECT * FROM tb_imaster ";
 if($_POST==""){
   
 }elseif($_POST["Y1_YDATE"]!="" || $_POST["Y1_kiDATE"]!=""){
-  //校正予\定と期限切れの年月欄に入力されている場合の処理
+  //校正予定と期限切れの年月欄に入力されている場合の処理
   $HAJIME = $_POST["Y1_kiDATE"]."/".$_POST["M1_kiDATE"]."/"."10";
   $OWARI = $_POST["Y2_kiDATE"]."/".$_POST["M2_kiDATE"]."/"."10";
   //入力データが日付ではなかった場合
@@ -182,6 +182,7 @@ if($_POST==""){
   //追加ボタンからの処理
   $SQL1=$_SESSION["back"];
   //response.redirect "debug.asp?st1="&SQL & "--1---" & sql1
+  error_log("\n[".date('Y-m-d H:i:s')."]"."_SESSION[back1]:".$_SESSION["back"],"3","./debug00.log");
 } 
 
 include ('../inc/paging.php');
@@ -190,7 +191,7 @@ $SQL1 = $_SESSION["back"];
 $SQL0 = $SQL.$SQL1." order by ".$strOrderBy.";";
 error_log("\n[".date('Y-m-d H:i:s')."]"."SQL:".$SQL,"3","./debug00.log");
 error_log("\n[".date('Y-m-d H:i:s')."]"."SQL0:".$SQL0,"3","./debug0.log");
-error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1:".$SQL1,"3","./debug1.log");
+error_log("\n[".date('Y-m-d H:i:s')."]"."SQL1back2:".$SQL1,"3","./debug1.log");
 error_log("\n[".date('Y-m-d H:i:s')."]"."strOrderBy:".$strOrderBy,"3","./debugstrOrderBy.log");
 
 $NM_DB = $_COOKIE['DSN_Campany'];
