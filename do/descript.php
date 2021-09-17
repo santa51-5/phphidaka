@@ -239,128 +239,119 @@ echo $rs["マスタID"];
       <Td><? echo $rs["所番地1"];?></td>
       <Th>使用区分</th>
       <Td>
-<? 
-if(!$_SESSION("$ng"){
-  if($rs["使用区分"]="未処置"){
+<?php 
+if(!$_SESSION['$ng']){
+  if( $rs['C_use'] = "未処置" ) {
     print "使用";
-  } 
+  }
 }else{
   print $rs["使用区分"];
-}?>
+}
+?>
 
 </td></tr>
 <tr>
 <?php
-if($%'2行目){
-
-
-  $%=$rs["型式番号"];?></td>
-      <Th><?   echo $p2;?></th>
+//'2行目
+  echo "<th>型式番号</th>"
+      <Th><?=$p2;?></th>
       <Td>
-<? 
-
-  if ((strpos($rs["所番地2"],"　") ? strpos($rs["所番地2"],"　")+1 : 0)>0)
-  {
-
+<?php 
+  if((strpos($rs["所番地2"],"　")>=0){
     $Ssec=explode("　",($rs["所番地2"]));
     $Ssec2=$Ssec[1]; //rs("所番地2")
-  }
-    else
-  {
-
+  }else{
     $Ssec2=$rs["所番地2"];
   } 
-
+  echo $Ssec2;
 ?>
-<?   echo $Ssec2;?>
       </td>
       <Th>検査周期</Th>
-      <Td><?   echo $rs["検査周期"];?>　ヶ月</td>
+      <Td><?=$rs["検査周期"];?>　ヶ月</td>
     </tr>
-    <tr><? //3行目 ?>
+    <tr><?php //3行目 ?>
       <Th>製造番号</th>
-      <Td><?   echo $rs["製造番号"];?></td>
-      <Th><?   echo $p3;?></th>
-	<?   $P_P3=$rs["所番地3"];?>
-      <Td><?   echo $p_p3;?></td>
+      <Td><?=$rs["製造番号"];?></td>
+      <Th><?=$p3;?></th>
+	<?php
+    $P_P3=$rs["所番地3"];?>
+      <Td><?=$p_p3;?></td>
       <Th>検査項目</Th>
-      <Td><?   echo $rs["検査項目名"];?></td>
+      <Td><?=$rs["検査項目名"];?></td>
     </tr>
 
-    <tr>   <? //4行目 ?>
+    <tr>   <?php //4行目 ?>
       <Th rowspan=3>サイズ</th>
       <Td rowspan=3>
-<!--#include file=inc/size_new.php -->
-
-<? 
+<?php include "../inc/size_new.php";
   print $size;//st
 ?>
       </td>
-      <Th><?   echo $p4;?></th>
-	 <?   $P_P4=$rs["所番地4"];?>
-      <Td><?   echo $p_p4;?></td>
+      <Th><?=$p4;?></th>
+	 <?php
+      $P_P4=$rs["所番地4"];?>
+      <Td><?=$p_p4;?></td>
 
-<?   if (!$nyukainfo)
-  {
+<?php
+if(!$nyukainfo){
 ?>
       <Th>登録年月日</th>
-      <TD><?     echo $rs["登録年月日"];?></TD>
-<?   }
-    else
-  {
+      <TD><?=$rs["登録年月日"];?></TD>
+<?
+}else{
 ?>
       <Th>納入日</th>
-      <TD><?     echo $rs["納入日"];?></TD>
-<?   } ?>
+      <TD><?=$rs["納入日"];?></TD>
+<?php
+}?>
     </tr>
-    <tr>   <? //5行目 ?>
-
-
-      <Th><?   echo $p5;?></th>
-	 <?   $P_P5=$rs["置き場1"];?>
-      <Td><?   echo $p_p5;?></td>
-      <Th>
-	<?   if ($admin)
-  {
+    <tr><?php //5行目 ?>
+    <Th><?=$p5;?></th>
+	 <?php
+$P_P5=$rs["置き場1"];?>
+    <Td><?=$p_p5;?></td>
+    <Th>
+<?php
+if($admin){
 ?>
 		 最新校正日
-	<?   }
-    else
-  {
+<?php
+}else{
 ?>
 		備考
-	<?   } ?></th>
+<?php
+} ?></th>
       <Td>
-	<?   if ($admin)
-  {
+	<?php
+if($admin){
 ?>
-		 <?     echo $rs["最新校正日"];?>
-	<?   }
-    else
-  {
+<?=$rs["最新校正日"];?>
+<?php
+}else{
 ?>
-		<?     echo $rs["備考１"];?>
-	<?   } ?></td>
+		<?=$rs["備考１"];?>
+	<?php
+} ?></td>
   </tr>
-    <tr>　　<? //6行目 ?>
+    <tr>　　<?php //6行目 ?>
 
       <Th>品番</th>
 
-      <Td><?   echo $rs["品番"];?></td>
+      <Td><?=$rs["品番"];?></td>
       <Th>
-	<?   if ($admin)
-  {
+	<?php
+  if($admin){
 ?>
 		 備考
-	<?   }
-    else
-  {
+	<?php
+}else{
 ?>
 		備考2
-	<?   } ?></th>
+	<?php
+} ?></th>
       <Td>
-	<?   if ($admin)
-  {
+<?php
+if($admin){
 ?>
 		 <?     echo $rs["備考1"];?>
 	<?   }
