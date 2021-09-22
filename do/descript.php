@@ -540,248 +540,166 @@ function haiki_kaijo($s_id){
 
 function sechenkou_shutoku($s_id){
 
-    $sqls="Select * from trans where mas_id=".$s_id.";";
+  $NM_DB = $_COOKIE['DSN_Campany'];
+  // ①DB接続しSQLを発行してデータを取得
+  $dbh = get_db_connect($_COOKIE['DSN_Campany']);
+  $errs = array();
+  $sqls="Select * from trans where mas_id=".$s_id.";";
+  $rs=Record_Load($dbh,$sqls);
+  
+  /*  
+    $t1=$rs["sec1"];
+    $t2=$rs["sec2"];
+    $t3=$rs["sec3"];
+    $t4=$rs["備考"];
+  */
+  return $rs;
+} 
 
-//response.redirect "debug.php?st1="&sqls
-//set rss=dbs.execute(sqls)
+include "sec_henkou.php";
+include "nyukajouhou_henkou.php";
+include "ck_dellist.php";
+include "ck_fukatsulist.php";
 
-    // $rss is of type "ADODB.Recordset"
-    $rs=mysql_query($SQLs);
+function henkou($s_id,$s1,$s2,$s3,$s4,$s5,$s6){
 
-    $t1=$rss["sec1"];
-    $t2=$rss["sec2"];
-    $t3=$rss["sec3"];
-    $t4=$rss["備考"];
+  $NM_DB = $_COOKIE['DSN_Campany'];
+  // ①DB接続しSQLを発行してデータを取得
+  $dbh = get_db_connect($_COOKIE['DSN_Campany']);
+  $errs = array();
 
+    $sql = 'SELECT * FROM trans ';
+    $stmt = $dbh->query($sql);
+    $stmt->execute();
+    $count=$stmt->rowCount();
     
-    mysql_close($dbs);
-    $rss=null;
+if(!isset($count)){
+  $ukeban=1;
+}else{
+  $ukeban=$count+1;
+} 
+if($s1==""){
+  $s1=null; 
+} 
+if($s2==""){
+  $s2=null; 
+} 
+if($s3==""){
+  $s3=null; 
+} 
+if($s4==""){
+  $s4=null; 
+} 
+if($s5==""){
+  $s5=null; 
+} 
+if($s6==""){
+  $s6=null; 
+} 
 
-    $dbs=null;
+// (3) SQL作成
+$stmt = $pdo->prepare("INSERT INTO trans (
+	受付番号,mas_id,sec1,sec2,sec3,sec4,sec5,備考,受付年月日
+) VALUES (
+	:ukeban,:s_id,:s1,:s2,:s3,:s4,:s5,:s6,:ukedate
+)");
+// (4) 登録するデータをセット
+$stmt->bindParam( ':受付番号', $ukeban, PDO::PARAM_STR);
+$stmt->bindParam( ':mas_id', $s_id, PDO::PARAM_STR);
+$stmt->bindParam( ':sec1', $s1, PDO::PARAM_STR);
+$stmt->bindParam( ':sec2', $s2, PDO::PARAM_STR);
+$stmt->bindParam( ':sec3', $s3, PDO::PARAM_STR);
+$stmt->bindParam( ':sec4', $s4, PDO::PARAM_STR);
+$stmt->bindParam( ':sec5', $s5, PDO::PARAM_STR);
+$stmt->bindParam( ':備考', $s6, PDO::PARAM_STR);
+$stmt->bindParam( ':ukedate', strftime("%m/%d/%Y %H:%M:%S"), PDO::PARAM_STR);
 
+// (5) SQL実行
+$res = $stmt->execute();
 
+// (6) データベースの接続解除
+$pdo = null;
 
-    return $function_ret;
+return $function_ret;
+} 
+
+function nyukajouhou_touroku($s_id,$s1,$s2,$s3,$s4,$s5,$s6){
+
+  $NM_DB = $_COOKIE['DSN_Campany'];
+  // ①DB接続しSQLを発行してデータを取得
+  $dbh = get_db_connect($_COOKIE['DSN_Campany']);
+  $errs = array();
+
+$sql = 'SELECT * FROM t_nyukajouhou ';
+$stmt = $dbh->query($sql);
+$stmt->execute();
+$count=$stmt->rowCount();
+
+  if (!isset($count)){
+    $ukeban=1;
+  }else{
+    $ukeban=$count+1;
   } 
-
-?>
-
-<!--#include file=sec_henkou.php -->
-<!--#include file=nyukajouhou_henkou.php -->
-<!--#include file=ck_dellist.php -->
-<!--#include file=ck_fukatsulist.php -->
-<? 
-  function henkou($s_id,$s1,$s2,$s3,$s4,$s5,$s6)
-  {
-    extract($GLOBALS);
-
-
-    // $dbs is of type "ADODB.Connection"
-        echo "Microsoft.Jet.OLEDB.4.0";
-        echo 3;
-        echo $DOCUMENT_ROOT."./cgi-bin/mydb/".$ID_kaishamei."/inew.mdb";
-    $a2p_connstr=;
-    $a2p_uid=strstr($a2p_connstr,'uid');
-    $a2p_uid=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_pwd=strstr($a2p_connstr,'pwd');
-    $a2p_pwd=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_database=strstr($a2p_connstr,'dsn');
-    $a2p_database=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $dbs=mysql_connect("localhost",$a2p_uid,$a2p_pwd);
-    mysql_select_db($a2p_database,$dbs);
-
-    $sqls="select Max(受付番号) as mcount from trans;";
-
-    $rss=$rss_query=mysql_query(($sqls),$dbs);    
-$rss=mysql_fetch_array($rss_query);
-;
-    if (!isset($rss["mcount"]))
-    {
-
-      $ukeban=1;
-    }
-      else
-    {
-
-      $ukeban=$rss["mcount"]+1;
-    } 
-
-
-    if ($s1=="")
-    {
-      $s1=null; 
-    } 
-
-    if ($s2=="")
-    {
-      $s2=null; 
-    } 
-
-    if ($s3=="")
-    {
-      $s3=null; 
-    } 
-
-    if ($s4=="")
-    {
-      $s4=null; 
-    } 
-
-    if ($s5=="")
-    {
-      $s5=null; 
-    } 
-
-    if ($s6=="")
-    {
-      $s6=null; 
-    } 
-
-
-
-    $SQLs2="INSERT INTO trans";
-    $SQLs2=$SQLs2." (受付番号,mas_id,sec1,sec2,sec3,sec4,sec5,備考,受付年月日)";
-    $SQLs2=$SQLs2." VALUES (".$ukeban.",".$s_id.",'".$s1."','".$s2."','";
-    $SQLs2=$SQLs2.$s3."','".$s4."','".$s5."','".$s6."','".strftime("%m/%d/%Y %H:%M:%S %p")."')";
-//response.redirect "debug.php?st1="&SQLs2
-
-    mysql_query($SQLs2//,,adexecuteNoRecords,$dbs);    $str="<p>変更完了しました！</P>";
-
-    
-    mysql_close($dbs);
-    $rss=null;
-
-    $dbs=null;
-
-
-    return $function_ret;
+  if($s1==""){
+    $s1=null; 
   } 
+  if($s2==""){
+    $s2=null; 
+  } 
+  if($s3==""){
+    $s3=null; 
+  }else{
+    $S3=doubleval($S3); 
+  } 
+  if($s4==""){
+    $s4=null; 
+  } 
+  if($s5==""){
+    $s5=null; 
+  } 
+  if($s6==""){
+    $s6=null; 
+  } 
+  if(!!isset($s3)){
+    // (3) SQL作成
+  $stmt = $pdo->prepare("INSERT INTO t_nyukajouhou (
+	受付番号,mas_id,納入日,納入者コード,単価,製造社コード,受入証明コード,発注分類,納入情報備考,受付年月日
+  ) VALUES (
+	:ukeban,:s_id,:s1,:s2,:s3,:s4,:s5,:s6,:s7,:ukedate
+  )");
 
-  function nyukajouhou_touroku($s_id,$s1,$s2,$s3,$s4,$s5,$s6)
-  {
-    extract($GLOBALS);
+  }else{
 
+    $stmt = $pdo->prepare("INSERT INTO t_nyukajouhou (
+      受付番号,mas_id,納入日,納入者コード,単価,製造社コード,受入証明コード,納入情報備考,受付年月日
+      ) VALUES (
+      :ukeban,:s_id,:s1,:s2,:s4,:s5,:s6,:s7,:ukedate
+      )");
+  } 
+// (4) 登録するデータをセット
+$stmt->bindParam( ':受付番号', $ukeban, PDO::PARAM_STR);
+$stmt->bindParam( ':mas_id', $s_id, PDO::PARAM_STR);
+$stmt->bindParam( ':sec1', $s1, PDO::PARAM_STR);
+$stmt->bindParam( ':sec2', $s2, PDO::PARAM_STR);
+$stmt->bindParam( ':sec3', $s3, PDO::PARAM_STR);
+$stmt->bindParam( ':sec4', $s4, PDO::PARAM_STR);
+$stmt->bindParam( ':sec5', $s5, PDO::PARAM_STR);
+$stmt->bindParam( ':備考', $s6, PDO::PARAM_STR);
+$stmt->bindParam( ':ukedate', strftime("%m/%d/%Y %H:%M:%S"), PDO::PARAM_STR);
 
-    // $dbs is of type "ADODB.Connection"
-        echo "Microsoft.Jet.OLEDB.4.0";
-        echo 3;
-        echo $DOCUMENT_ROOT."./cgi-bin/mydb/".$ID_kaishamei."/inew.mdb";
-    $a2p_connstr=;
-    $a2p_uid=strstr($a2p_connstr,'uid');
-    $a2p_uid=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_pwd=strstr($a2p_connstr,'pwd');
-    $a2p_pwd=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_database=strstr($a2p_connstr,'dsn');
-    $a2p_database=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $dbs=mysql_connect("localhost",$a2p_uid,$a2p_pwd);
-    mysql_select_db($a2p_database,$dbs);
+// (5) SQL実行
+$res = $stmt->execute();
 
-    $sqls="select Max(受付番号) as mcount from t_nyukajouhou;";
-
-    $rss=$rss_query=mysql_query(($sqls),$dbs);    
-$rss=mysql_fetch_array($rss_query);
-;
-    if (!isset($rss["mcount"]))
-    {
-
-      $ukeban=1;
-    }
-      else
-    {
-
-      $ukeban=$rss["mcount"]+1;
-    } 
-
-
-    if ($s1=="")
-    {
-      $s1=null; 
-    } 
-
-    if ($s2=="")
-    {
-      $s2=null; 
-    } 
-
-    if ($s3=="")
-    {
-      $s3=null; 
-
-    }
-      else
-    {
-      $S3=doubleval($S3); 
-    } 
-
-    if ($s4=="")
-    {
-      $s4=null; 
-    } 
-
-    if ($s5=="")
-    {
-      $s5=null; 
-    } 
-
-    if ($s6=="")
-    {
-      $s6=null; 
-    } 
-
-
-//response.redirect "debug.php?st1="&s1&S2
-    if (!!isset($s3))
-    {
-
-      $SQLs2="INSERT INTO t_nyukajouhou";
-      $SQLs2=$SQLs2." (受付番号,mas_id,納入日,納入者コード,単価,製造社コード,受入証明コード,発注分類,納入情報備考,受付年月日)";
-      $SQLs2=$SQLs2." VALUES (".$ukeban.",".$s_id.", '".$s1."','".$s2."',";
-      $SQLs2=$SQLs2.$s3.",'".$s4."','".$s5."',".$s6.",'".$s7."','".strftime("%m/%d/%Y %H:%M:%S %p")."')";
-    }
-      else
-    {
-
-      $SQLs2="INSERT INTO t_nyukajouhou";
-      $SQLs2=$SQLs2." (受付番号,mas_id,納入日,納入者コード,製造社コード,受入証明コード,納入情報備考,受付年月日)";
-      $SQLs2=$SQLs2." VALUES (".$ukeban.",".$s_id.", '".$s1."','".$s2."','";
-      $SQLs2=$SQLs2.$s4."','".$s5."',".$s6.",'".$s7."','".strftime("%m/%d/%Y %H:%M:%S %p")."')";
-
-    } 
-
-//response.redirect "debug.php?st1=" & SQLs2
-
-
-    mysql_query($SQLs2//,,adexecuteNoRecords,$dbs);    $str="<p>変更完了しました！</P>";
-
-    
-    mysql_close($dbs);
-    $rss=null;
-
-    $dbs=null;
+// (6) データベースの接続解除
+$pdo = null;
+  
 
 
     return $function_ret;
   } 
 
 
-  function haiki($s_id,$s1)
-  {
-    extract($GLOBALS);
-
-
-    // $dbs is of type "ADODB.Connection"
-        echo "Microsoft.Jet.OLEDB.4.0";
-        echo 3;
-        echo $DOCUMENT_ROOT."./cgi-bin/mydb/".$ID_kaishamei."/inew.mdb";
-    $a2p_connstr=;
-    $a2p_uid=strstr($a2p_connstr,'uid');
-    $a2p_uid=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_pwd=strstr($a2p_connstr,'pwd');
-    $a2p_pwd=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $a2p_database=strstr($a2p_connstr,'dsn');
-    $a2p_database=substr($d,strpos($d,'=')+1,strpos($d,';')-strpos($d,'=')-1);
-    $dbs=mysql_connect("localhost",$a2p_uid,$a2p_pwd);
-    mysql_select_db($a2p_database,$dbs);
+function haiki($s_id,$s1){
 
     $sqls="select Max(受付番号) as mcount from del;";
 
